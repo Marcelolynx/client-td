@@ -1,33 +1,27 @@
 {
-  "name": "react-avancado-boilerplate",
+  "name": "terapia-de-todos",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src --max-warnings=0",
+    "lint": "eslint src",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
     "generate": "yarn plop --plopfile generators/plopfile.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "postinstall": "husky install",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "src/**/*": [
-      "yarn lint --fix",
-      "yarn test --findRelatedTests --bail"
-    ]
+    "storybook": "start-storybook  -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "12.0.10",
     "next-pwa": "^5.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "5.3.3"
+    "styled-components": "5.3.3",
+    "styled-icons": "^10.45.0",
+    "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "6.4.17",

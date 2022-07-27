@@ -124,7 +124,7 @@ const Cta = () => {
                 <li>
                   <S.RowItem>
                     <Check2 className="icon" />
-                    <p>Todas as vantagesn da Family</p>
+                    <p>Todas as vantagens da Family</p>
                   </S.RowItem>
                 </li>
                 <li>

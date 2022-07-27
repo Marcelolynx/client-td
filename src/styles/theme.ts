@@ -1,0 +1,54 @@
+export default {
+  grid: {
+    container: '130rem',
+    gutter: '3.2rem'
+  },
+  border: {
+    radius: '0.8rem'
+  },
+  font: {
+    family:
+      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    light: 300,
+    normal: 400,
+    bold: 600,
+    xbold: 700,
+    sizes: {
+      xsmall: '1.2rem',
+      small: '1.4rem',
+      medium: '1.6rem',
+      large: '2.8rem',
+      xlarge: '3.8rem',
+      xxlarge: '4.8rem'
+    }
+  },
+  colors: {
+    primary: '#8B4F8B',
+    secondary: '#C5A7C5',
+    mainBg: '#E2D3E2',
+    white: '#FAFAFA',
+    whiteBg: '#FFFFFF',
+    green: '#3CD3C1',
+    black: '#030517',
+    lightGray: '#EAEAEA',
+    gray: '#8F8F8F',
+    darkGray: '#2E2F42',
+    lightPurple: '#734273'
+  },
+  spacings: {
+    xxsmall: '0.8rem',
+    xsmall: '1.6rem',
+    small: '2.4rem',
+    medium: '3.2rem',
+    large: '4.5rem',
+    xlarge: '4.8rem',
+    xxlarge: '5.6rem'
+  },
+  layers: {
+    base: 10,
+    menu: 20,
+    overlay: 30,
+    modal: 40,
+    alwaysOnTop: 50
+  }
+}
