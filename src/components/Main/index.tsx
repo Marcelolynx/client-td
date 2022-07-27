@@ -1,20 +1,23 @@
+import BannerBusca from 'components/BannerBusca'
+import Beneficios from 'components/Beneficios'
+import Cta from 'components/Cta'
+import Footer from 'components/Footer'
+import Hero from 'components/Hero'
+import Sobre from 'components/Sobre'
+import TagHome from 'components/TagHome'
+import Menu from 'components/Menu'
 import * as S from './styles'
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'TypeScript, ReactJS, NextJS e Styled Components'
-}) => (
+const Main = () => (
   <S.Wrapper>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Imagem de um átomo e React Avançado escrito ao lado."
-    />
-    <S.Title>{title}</S.Title>
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Um desenvolvedor de frente para uma tela com código."
-    />
+    <Menu />
+    <Hero />
+    <Sobre />
+    <Beneficios />
+    <Cta />
+    <BannerBusca />
+    <TagHome />
+    <Footer />
   </S.Wrapper>
 )
 

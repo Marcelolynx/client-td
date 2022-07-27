@@ -1,11 +1,11 @@
 import styled from 'styled-components'
+import theme from 'styles/theme'
 
 export const Wrapper = styled.main`
-  background-color: #06092b;
+  background-color: white;
   color: #fff;
   width: 100%;
   height: 100%;
-  padding: 3rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -25,6 +25,8 @@ export const Title = styled.h1`
 export const Description = styled.h2`
   font-size: 2rem;
   font-weight: 400;
+  color: ${theme.colors.black};
+  font-size: ${theme.font.sizes.medium};
 `
 
 export const Illustration = styled.img`
