@@ -54,9 +54,9 @@ const ProCard = ({
         )}
       </S.FavButton>
       <S.BuyBox>
-        {!!promotionalPrice && <S.Price isPromotional>{price}/vh</S.Price>}
+        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <p>Valor Hora</p>
-        <S.Price>{promotionalPrice || price}/vh</S.Price>
+        <S.Price>{promotionalPrice || price}</S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>
     </S.Content>

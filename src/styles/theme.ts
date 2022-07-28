@@ -17,9 +17,10 @@ export default {
       xsmall: '1.2rem',
       small: '1.4rem',
       medium: '1.6rem',
-      large: '2.8rem',
-      xlarge: '3.8rem',
-      xxlarge: '4.8rem'
+      large: '1.8rem',
+      xlarge: '2.0rem',
+      xxlarge: '2.8rem',
+      huge: '5.2rem'
     }
   },
   colors: {
@@ -33,7 +34,8 @@ export default {
     lightGray: '#EAEAEA',
     gray: '#8F8F8F',
     darkGray: '#2E2F42',
-    lightPurple: '#734273'
+    lightPurple: '#734273',
+    danger: '#FF6347'
   },
   spacings: {
     xxsmall: '0.8rem',

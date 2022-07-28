@@ -13,7 +13,7 @@ const LogoMobile = ({
 }: LogoProps) => (
   <S.Wrapper color={color} size={size} hideOnMobile={hideOnMobile}>
     <svg
-      width="218"
+      width="109"
       height="125"
       viewBox="0 0 218 125"
       fill="none"

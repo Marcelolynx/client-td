@@ -6,13 +6,21 @@ import { HeadingProps, LineColors } from '.'
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
+
+    &::after {
+      width: 3rem;
+    }
   `,
   medium: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.large};
+    font-size: ${theme.font.sizes.medium};
 
     ${media.greaterThan('medium')`
   font-size: ${theme.font.sizes.xlarge};
 `}
+  `,
+
+  huge: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.huge};
   `,
 
   lineLeft: (theme: DefaultTheme, lineColor: LineColors) => css`

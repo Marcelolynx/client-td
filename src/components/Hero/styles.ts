@@ -48,7 +48,7 @@ export const TextHero = styled.div`
 
   h1 {
     font-size: ${theme.font.sizes.xxlarge};
-    color: ${theme.colors.secondary};
+    color: ${theme.colors.white};
     font-weight: ${theme.font.bold};
     line-height: 100%;
     margin-bottom: 20px;

@@ -23,11 +23,11 @@ export const Container = styled.div`
   h2 {
     color: ${theme.colors.white};
     align-self: center;
-    font-size: ${theme.font.sizes.xlarge};
+    font-size: ${theme.font.sizes.huge};
   }
 
   a {
-    font-size: ${theme.font.sizes.xlarge};
+    font-size: ${theme.font.sizes.xxlarge};
     color: ${theme.colors.white};
     align-self: center;
     cursor: pointer;
