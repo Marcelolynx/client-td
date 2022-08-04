@@ -3,7 +3,7 @@ import Auth from 'templates/Auth'
 
 export default function SingIn() {
   return (
-    <Auth title="cadastre-se:">
+    <Auth title="Login:">
       <FormSignIn />
     </Auth>
   )

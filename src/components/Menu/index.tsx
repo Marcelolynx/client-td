@@ -43,7 +43,9 @@ const Menu = ({ username }: MenuProps) => {
         </S.IconWrapper>
 
         <MediaMatch greaterThan="medium">
-          <Button>Cadastrar</Button>
+          <Link href="/sign-up" passHref>
+            <Button as="a">Cadastrar</Button>
+          </Link>
         </MediaMatch>
       </S.MenuGroup>
 
@@ -64,13 +66,17 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Login
-            </Button>
+            <Link href="/sign-up" passHref>
+              <Button fullWidth size="large" as="a">
+                Login
+              </Button>
+            </Link>
             <span>OU</span>
-            <S.CreateAccount href="#" title="Assine Agora">
-              Assine Agora
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount href="#" title="Assine Agora">
+                Assine Agora
+              </S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

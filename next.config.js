@@ -3,6 +3,9 @@ const withPWA = require('next-pwa')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   swcMinify: true,
   experimental: {
     // Enables the styled-components SWC transform

@@ -2,6 +2,7 @@ import Heading from 'components/Heading'
 import Logo from 'components/Logo'
 import LogoMobile from 'components/LogoMobile'
 import * as S from './styles'
+import Link from 'next/link'
 
 type AuthProps = {
   title: string
@@ -12,10 +13,16 @@ const Auth = ({ title, children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
-        <LogoMobile />
+        <Link href="/">
+          <a>
+            <LogoMobile />
+          </a>
+        </Link>
+
         <div>
           <Heading size="huge">
-            Os melhores profissionais no mesmo lugar
+            Os melhores terapeutas
+            <br /> em só lugar
           </Heading>
           <S.Subtitle>
             <strong>Terapia de Todos</strong>
@@ -29,7 +36,11 @@ const Auth = ({ title, children }: AuthProps) => (
     </S.BannerBlock>
     <S.Content>
       <S.ContentWrapper>
-        <Logo color="black" size="large" />
+        <Link href="/">
+          <a>
+            <Logo color="black" size="large" />
+          </a>
+        </Link>
         <Heading color="black" lineColor="secondary" lineLeft>
           {title}
         </Heading>

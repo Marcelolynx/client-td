@@ -19,12 +19,13 @@ export const InputWrapper = styled.div`
   `}
 `
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+export const Input = styled.input<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall};
+    padding-${iconPosition}: ${theme.spacings.xsmall};
     background: transparent;
     border: 0;
     outline: none;
@@ -82,8 +83,9 @@ const wrapperModifiers = {
   `
 }
 
-export const Wrapper = styled.div<Pick<TextFieldProps, 'disabled'>>`
-  ${({ theme, disabled }) => css`
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, disabled, error }) => css`
+    ${error && wrapperModifiers.error(theme)}
     ${disabled && wrapperModifiers.disabled(theme)}
   `}
 `

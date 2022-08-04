@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import theme from 'styles/theme'
 
 export const Wrapper = styled.div`
-  width: 1400px;
   height: 516px;
   background-image: url('/img/Background-Hero.jpg');
   margin: 0 auto;

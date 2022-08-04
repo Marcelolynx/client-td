@@ -3,14 +3,12 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
-    width: 1400px;
     display: flex;
     align-items: center;
     padding: ${theme.spacings.small} 0;
     position: relative;
   `}
 `
-
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
     position: absolute;
@@ -18,16 +16,14 @@ export const LogoWrapper = styled.div`
     transform: translateX(-50%);
   `}
 `
-
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.primary};
+    color: ${theme.colors.black};
     cursor: pointer;
     width: 2.4rem;
     height: 2.4rem;
   `}
 `
-
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -39,12 +35,10 @@ export const MenuGroup = styled.div`
     }
   `}
 `
+
 export const MenuNav = styled.div`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.small};
-    ${media.greaterThan('medium')`
-			margin-left: ${theme.spacings.small};
-		`}
   `}
 `
 
@@ -53,7 +47,7 @@ export const MenuLink = styled.a`
     position: relative;
     color: ${theme.colors.primary};
     font-size: ${theme.font.sizes.medium};
-    margin: 3.3rem ${theme.spacings.small} 0;
+    margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
     &:hover {
@@ -78,11 +72,9 @@ export const MenuLink = styled.a`
     }
   `}
 `
-
 type MenuFullProps = {
   isOpen: boolean
 }
-
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     display: flex;
@@ -108,7 +100,6 @@ export const MenuFull = styled.nav<MenuFullProps>`
       width: 2.4rem;
       height: 2.4rem;
     }
-
     ${MenuNav} {
       display: flex;
       align-items: center;
@@ -121,17 +112,15 @@ export const MenuFull = styled.nav<MenuFullProps>`
       font-weight: ${theme.font.bold};
       font-size: ${theme.font.sizes.xlarge};
       margin-bottom: ${theme.spacings.small};
-      transform: ${isOpen ? 'translateY(0)' : 'translateY(100%)'};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
-
     ${RegisterBox} {
-      transform: ${isOpen ? 'translateY(0)' : 'translateY(100%)'};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
   `}
 `
-
 export const RegisterBox = styled.div`
   ${({ theme }) => css`
     display: flex;

@@ -14,7 +14,7 @@ const Checkbox = ({
   isChecked = false,
   label,
   labelFor = '',
-  labelColor = 'white',
+  labelColor = 'black',
   value,
   ...props
 }: CheckboxProps) => {

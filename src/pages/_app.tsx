@@ -16,14 +16,13 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Terapia de Todos - Clube de Benefícios</title>
+        <title>Terapia de Todos</title>
         <link rel="shortcut icon" href="/img/favicon.png" />
         <link rel="apple-touch-icon" href="/img/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#06092B" />
         <meta
           name="description"
-          content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
+          content="Terapia de Todos - O Melhor Clube de Benefícios do Brasil"
         />
       </Head>
       <GlobalStyles />
