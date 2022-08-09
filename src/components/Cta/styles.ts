@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styles/theme'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 1400px;
@@ -10,6 +11,11 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+      max-width: 540px;
+      height: 1960px;
+    `}
 `
 
 export const BoxList = styled.div`
@@ -42,6 +48,9 @@ export const BoxList = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: row;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+  `}
 `
 
 export const Illustration = styled.img`
@@ -57,6 +66,9 @@ export const TextCta = styled.strong`
   font-size: ${theme.font.sizes.xxlarge};
   color: ${theme.colors.primary};
   font-weight: ${theme.font.bold};
+  ${media.lessThan('medium')`
+    text-align: center;
+  `}
 `
 
 export const TextVantagens = styled.span`
@@ -110,6 +122,11 @@ export const BoxCard = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+      height: 750px;
+      margin-top: 400px;
+  `}
 `
 
 export const SingleCard = styled.div`
@@ -121,6 +138,14 @@ export const SingleCard = styled.div`
   padding: 20px;
   color: ${theme.colors.primary};
   box-shadow: 0 2.8px 2.2px rgba(115, 65, 115, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+      height: 450px;
+      width: 300px;
+  `}
 
   .pricebox {
     display: flex;
@@ -167,6 +192,14 @@ export const FamilyCard = styled.div`
   padding: 20px;
   color: ${theme.colors.white};
   transform: translateY(-25px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+      height: 550px;
+      width: 300px;
+  `}
 
   .pricebox {
     display: flex;
@@ -202,6 +235,9 @@ export const FamilyCard = styled.div`
     padding: 10px;
     font-size: ${theme.font.sizes.large};
     font-weight: ${theme.font.xbold};
+    ${media.lessThan('medium')`
+    font-size: ${theme.font.sizes.medium};
+  `}
   }
 `
 export const SuperFamilyCard = styled.div`
@@ -213,6 +249,8 @@ export const SuperFamilyCard = styled.div`
   padding: 20px;
   color: ${theme.colors.primary};
   transform: translateY(-25px);
+  display: flex;
+  flex-direction: column;
 
   .iconCard {
     height: 64px;
@@ -229,6 +267,9 @@ export const SuperFamilyCard = styled.div`
     padding: 10px;
     font-size: ${theme.font.sizes.large};
     font-weight: ${theme.font.xbold};
+    ${media.lessThan('medium')`
+    font-size: ${theme.font.sizes.medium};
+    `}
   }
 `
 
@@ -259,6 +300,7 @@ export const Button = styled.button`
   font-size: ${theme.font.sizes.medium};
   cursor: pointer;
   position: relative;
+  align-self: center;
 `
 
 export const ButtonWhite = styled.button`

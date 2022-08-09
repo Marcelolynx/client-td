@@ -57,7 +57,9 @@ const Cta = () => {
                 </li>
               </ul>
             </S.BoxList>
-            <S.Button> Assine agora</S.Button>
+            <div>
+              <S.Button> Assine agora</S.Button>
+            </div>
           </S.SingleCard>
 
           <S.FamilyCard>

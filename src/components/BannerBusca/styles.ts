@@ -26,7 +26,8 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   ${media.lessThan('medium')`
-  width: 748px;
+  width: 540px;
+  margin: 10px;
 
   `}
 

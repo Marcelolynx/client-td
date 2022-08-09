@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
   ${media.lessThan('medium')`
+      margin: 10px;
       flex-direction: column;
       max-width: 540px;
       height: 600px;

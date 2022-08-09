@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styles/theme'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 1400px;
@@ -8,6 +9,11 @@ export const Wrapper = styled.div`
   align-content: flex-start;
   color: ${theme.colors.primary};
   justify-content: start;
+  ${media.lessThan('medium')`
+      flex-direction: column;
+      max-width: 540px;
+      height: 600px;
+    `}
 `
 
 export const Illustration = styled.img`
