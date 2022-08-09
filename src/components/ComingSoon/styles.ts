@@ -19,7 +19,7 @@ export const LogoWhite = styled.img`
   height: 250px;
   padding: 0;
   ${media.lessThan('medium')`
-    height: 15%;
+    height: 10%;
   `}
 `
 
@@ -30,10 +30,10 @@ export const Call = styled.h1`
     margin: 25px;
 
     ${media.lessThan('medium')`
-    font-size: ${theme.font.sizes.large};
+    font-size: ${theme.font.sizes.xlarge};
   `}
     p {
-      font-size: ${theme.font.sizes.medium};
+      font-size: ${theme.font.sizes.small};
       color: ${theme.colors.white};
     }
   `}

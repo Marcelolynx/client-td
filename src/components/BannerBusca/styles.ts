@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styles/theme'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 1400px;
@@ -8,6 +9,11 @@ export const Wrapper = styled.div`
   align-content: flex-start;
   color: ${theme.colors.primary};
   justify-content: start;
+
+  ${media.lessThan('medium')`
+  width: 748px;
+
+  `}
 `
 export const Container = styled.div`
   width: 1400px;
@@ -19,11 +25,19 @@ export const Container = styled.div`
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  ${media.lessThan('medium')`
+  width: 748px;
+
+  `}
 
   h2 {
     color: ${theme.colors.white};
     align-self: center;
     font-size: ${theme.font.sizes.huge};
+    ${media.lessThan('medium')`
+  font-size: ${theme.font.sizes.large};
+
+  `}
   }
 
   a {
@@ -31,6 +45,9 @@ export const Container = styled.div`
     color: ${theme.colors.white};
     align-self: center;
     cursor: pointer;
+    ${media.lessThan('medium')`
+  font-size: ${theme.font.sizes.medium};
+  `}
   }
 `
 
