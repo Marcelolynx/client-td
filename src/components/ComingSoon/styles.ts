@@ -3,7 +3,6 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    width: 100vw;
     height: 100vh;
     background: ${theme.colors.primary};
     display: flex;
@@ -14,7 +13,11 @@ export const Wrapper = styled.div`
 `
 
 export const LogoWhite = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 250px;
+  padding: 0;
   ${media.lessThan('medium')`
     height: 15%;
   `}
@@ -24,7 +27,9 @@ export const Call = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.huge};
     color: ${theme.colors.white};
-    ${media.greaterThan('medium')`
+    margin: 25px;
+
+    ${media.lessThan('medium')`
     font-size: ${theme.font.sizes.large};
   `}
     p {
