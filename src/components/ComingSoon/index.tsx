@@ -8,8 +8,10 @@ const ComingSoon = () => (
       <S.LogoWhite src="/img/logo-white.png" alt="" />
     </div>
     <div>
-      <S.Call>EM BREVE!</S.Call>
-      <p>O MELHOR CLUBE DE DESCONTOS DO BRASIL</p>
+      <S.Call>
+        EM BREVE!
+        <p>O MELHOR CLUBE DE DESCONTOS DO BRASIL</p>
+      </S.Call>
     </div>
   </S.Wrapper>
 )

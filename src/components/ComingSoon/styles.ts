@@ -15,8 +15,8 @@ export const Wrapper = styled.div`
 
 export const LogoWhite = styled.img`
   height: 250px;
-  ${media.greaterThan('medium')`
-    height: 50%;
+  ${media.lessThan('medium')`
+    height: 15%;
   `}
 `
 
@@ -27,5 +27,9 @@ export const Call = styled.h1`
     ${media.greaterThan('medium')`
     font-size: ${theme.font.sizes.large};
   `}
+    p {
+      font-size: ${theme.font.sizes.medium};
+      color: ${theme.colors.white};
+    }
   `}
 `

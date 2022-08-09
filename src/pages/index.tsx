@@ -1,4 +1,5 @@
 import ComingSoon from 'components/ComingSoon'
+import Home from 'templates/Home'
 
 export default function Index() {
   return <ComingSoon />
