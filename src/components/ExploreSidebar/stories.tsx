@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import ExploreSidebar, { ExplorerSidebarProps } from '.'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import ExploreSidebar, { ExploreSidebarProps } from '.'
 
 import items from './mock'
 
@@ -8,18 +8,26 @@ export default {
   component: ExploreSidebar,
   args: {
     items
+  },
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'won-dark'
+    }
   }
 } as Meta
 
-export const Default: Story<ExplorerSidebarProps> = (args) => (
-  <ExploreSidebar {...args} />
+export const Default: Story<ExploreSidebarProps> = (args) => (
+  <div style={{ padding: 16, maxWidth: 320 }}>
+    <ExploreSidebar {...args} />
+  </div>
 )
 
-export const WithInitialValues: Story<ExplorerSidebarProps> = (args) => (
+export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
   <div style={{ padding: 16, maxWidth: 320 }}>
     <ExploreSidebar
       {...args}
-      initialValues={{ orde: true, sort_by: 'do maior valor' }}
+      initialValues={{ windows: true, sort_by: 'low-to-high' }}
     />
   </div>
 )

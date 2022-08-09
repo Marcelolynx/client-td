@@ -31,8 +31,8 @@ const Menu = ({ username }: MenuProps) => {
 
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
-          <S.MenuLink href="#">Home</S.MenuLink>
-          <S.MenuLink href="#">Profissionais</S.MenuLink>
+          <S.MenuLink href="/">Home</S.MenuLink>
+          <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
           <S.MenuLink href="#">Blog</S.MenuLink>
         </S.MenuNav>
       </MediaMatch>
@@ -54,7 +54,7 @@ const Menu = ({ username }: MenuProps) => {
 
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
-          <S.MenuLink href="#">Profissionais</S.MenuLink>
+          <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
 
           {!!username && (
             <>

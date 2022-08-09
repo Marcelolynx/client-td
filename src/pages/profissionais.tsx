@@ -1,12 +1,18 @@
-import Footer from 'components/Footer'
-import Menu from 'components/Menu'
+import ProfissionaisTemplate, {
+  ProfissionaisTemplateProps
+} from 'templates/Profissionais'
+import filterItemsMock from 'components/ExploreSidebar/mock'
+import gamesMock from 'components/GameCardSlider/mock'
 
-export default function Profissionais() {
-  return (
-    <>
-      <Menu />
-      <div>Lista de Profissionais</div>
-      <Footer />
-    </>
-  )
+export default function ProfissionaisPage(props: ProfissionaisTemplateProps) {
+  return <ProfissionaisTemplate {...props} />
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      profissionais: gamesMock,
+      filterItems: filterItemsMock
+    }
+  }
 }

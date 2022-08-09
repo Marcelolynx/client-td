@@ -51,18 +51,23 @@ export const Illustration = styled.img`
   align-items: flex-start;
 `
 export const TextCta = styled.strong`
-  font-size: ${theme.font.sizes.xlarge};
+  align-self: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: ${theme.font.sizes.xxlarge};
   color: ${theme.colors.primary};
   font-weight: ${theme.font.bold};
 `
 
 export const TextVantagens = styled.span`
+  align-self: center;
   font-size: ${theme.font.sizes.large};
   color: ${theme.colors.primary};
   font-weight: ${theme.font.normal};
 `
 
 export const Textterapeutas = styled.h4`
+  align-self: center;
   font-size: ${theme.font.sizes.medium};
   color: ${theme.colors.primary};
   font-weight: ${theme.font.light};
