@@ -25,3 +25,10 @@ export const ShowMore = styled.div`
     }
   `}
 `
+
+export const Banner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+`

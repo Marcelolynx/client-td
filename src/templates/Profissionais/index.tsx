@@ -5,6 +5,7 @@ import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import ProCard, { ProCardProps } from 'components/ProCard/'
 import { Grid } from 'components/Grid'
+import BannerAdsense from 'components/BannerAdsense'
 
 export type ProfissionaisTemplateProps = {
   profissionais?: ProCardProps[]
@@ -22,6 +23,9 @@ const ProfissionaisTemplate = ({
         onFilter={() => console.log('filter')}
       />
       <section>
+        <S.Banner>
+          <BannerAdsense />
+        </S.Banner>
         <Grid>
           {profissionais.map((item) => (
             <ProCard key={item.title} {...item} />
