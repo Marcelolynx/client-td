@@ -1,7 +1,7 @@
-import Home from 'templates/Home'
+import ComingSoon from 'components/ComingSoon'
 
 export default function Index() {
-  return <Home />
+  return <ComingSoon />
 }
 
 export function getServerSideProps() {
