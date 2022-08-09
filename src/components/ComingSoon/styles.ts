@@ -18,7 +18,7 @@ export const LogoWhite = styled.img`
   justify-content: center;
   height: 250px;
   padding: 0;
-  ${media.lessThan('medium')`
+  ${media.lessThan('medium')`s
     height: 15%;
   `}
 `
