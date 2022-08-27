@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   height: 100vh;

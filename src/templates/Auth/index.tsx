@@ -22,7 +22,7 @@ const Auth = ({ title, children }: AuthProps) => (
         <div>
           <Heading size="huge">
             Os melhores terapeutas
-            <br /> em só lugar
+            <br /> em um só lugar
           </Heading>
           <S.Subtitle>
             <strong>Terapia de Todos</strong>

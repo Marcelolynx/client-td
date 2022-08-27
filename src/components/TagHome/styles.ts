@@ -3,7 +3,8 @@ import theme from 'styles/theme'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  width: 1400px;
+  max-width: ${theme.grid.container};
+  margin: 0 auto;
   height: 310px;
   display: flex;
   align-content: flex-start;

@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    width: 1400px;
+    width: 100%;
+    max-width: ${theme.grid.container}
     margin-left: auto;
     margin-right: auto;
     padding-left: calc(${theme.grid.gutter} / 2);

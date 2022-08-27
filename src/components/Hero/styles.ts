@@ -3,6 +3,7 @@ import theme from 'styles/theme'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
+  max-width: ${theme.grid.container};
   height: 516px;
   background-image: url('/img/Background-Hero.jpg');
   margin: 0 auto;

@@ -1,9 +1,14 @@
+import Base from 'templates/Base'
 import * as S from './styles'
 
-const Terapeuta = () => (
-  <S.Wrapper>
-    <h1>Terapeuta</h1>
-  </S.Wrapper>
+export type TerapeutaTemplateProps = {
+  cover: string
+}
+
+const Terapeuta = ({ cover }: TerapeutaTemplateProps) => (
+  <Base>
+    <S.Cover src={cover} role="image" aria-label="cover" />
+  </Base>
 )
 
 export default Terapeuta

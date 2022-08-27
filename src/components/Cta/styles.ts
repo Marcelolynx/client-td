@@ -3,14 +3,16 @@ import theme from 'styles/theme'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  width: 1400px;
+  max-width: ${theme.grid.container};
+  margin: 0 auto;
+  margin-top: 50px;
   display: flex;
-  margin: 150px 0 150px 0;
   background: #f7f7f7;
   padding: 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+
   ${media.lessThan('medium')`
       flex-direction: column;
       max-width: 540px;
@@ -98,6 +100,12 @@ export const InfoPrice = styled.h4`
   font-weight: ${theme.font.bold};
   display: flex;
   align-items: center;
+
+  ${media.lessThan('medium')`
+      max-width: 300px;
+      height: 50px;
+      font-size: ${theme.font.sizes.small};
+    `}
 `
 export const ValorMensal = styled.h4`
   display: flex;
@@ -113,6 +121,10 @@ export const ValorMensal = styled.h4`
   background: ${theme.colors.secondary};
   color: ${theme.colors.primary};
   font-weight: ${theme.font.bold};
+
+  ${media.lessThan('medium')`
+  font-size: ${theme.font.sizes.small};
+    `}
 `
 export const BoxCard = styled.div`
   height: 550px;

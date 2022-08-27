@@ -36,4 +36,8 @@ export const Wrapper = styled.div<LogoProps>`
     ${!!size && wrapperModifier[size]}
     ${!!hideOnMobile && wrapperModifier.hideOnMobile}
   `}
+  ${media.lessThan('medium')`
+    width: 1.8rem;
+    height: 2.5rem;
+  `}
 `

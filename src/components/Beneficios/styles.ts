@@ -3,12 +3,15 @@ import theme from 'styles/theme'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  width: 1400px;
+  max-width: ${theme.grid.container};
+  margin: 0 auto;
+  margin-top: 50px;
   height: 310px;
   display: flex;
   align-content: flex-start;
   color: ${theme.colors.primary};
   justify-content: start;
+
   ${media.lessThan('medium')`
       flex-direction: column;
       max-width: 540px;

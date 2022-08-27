@@ -3,10 +3,13 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
+    max-width: ${theme.grid.container};
+    margin: 0 auto;
     display: flex;
     align-items: center;
     padding: ${theme.spacings.small} 0;
     position: relative;
+    z-index: ${theme.layers.menu};
   `}
 `
 export const LogoWrapper = styled.div`

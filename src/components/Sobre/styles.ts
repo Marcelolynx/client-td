@@ -3,10 +3,12 @@ import theme from 'styles/theme'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.article`
-  width: 1400px;
+  max-width: ${theme.grid.container};
   height: 310px;
   display: flex;
-  margin: 100px 0 100px 0;
+  margin: 0 auto;
+  margin-top: 50px;
+  align-content: center;
   ${media.lessThan('medium')`
       flex-direction: column;
       max-width: 540px;
