@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as HeadingStyles from 'components/Heading/styles'
+import theme from 'styles/theme'
 
 export const Wrapper = styled.footer`
-  ${HeadingStyles.Wrapper} {
-    text-transform: uppercase;
-  }
+  max-width: ${theme.grid.container};
+  margin: 0 auto;
+  text-transform: uppercase;
 `
 
 export const Content = styled.div`
