@@ -2,48 +2,41 @@ import BannerBusca from 'components/BannerBusca'
 import Beneficios from 'components/Beneficios'
 import { Container } from 'components/Container'
 import Cta from 'components/Cta'
-import Footer from 'components/Footer'
 import Hero from 'components/Hero'
-import Menu from 'components/Menu'
 import Sobre from 'components/Sobre'
-import TagHome from 'components/TagHome'
+import TagHome, { TagProps } from 'components/TagHome'
+import Base from 'templates/Base'
 
-const Home = () => {
-  return (
-    <section>
-      <Container>
-        <Menu />
-      </Container>
-
-      <Container>
-        <Hero />
-      </Container>
-
-      <Container>
-        <Sobre />
-      </Container>
-
-      <Container>
-        <Beneficios />
-      </Container>
-
-      <Container>
-        <Cta />
-      </Container>
-
-      <Container>
-        <BannerBusca />
-      </Container>
-
-      <Container>
-        <TagHome />
-      </Container>
-
-      <Container>
-        <Footer />
-      </Container>
-    </section>
-  )
+export type HomeTemplateProps = {
+  tagsMock: TagProps['therapyKind']
 }
+
+const Home = ({ tagsMock }: HomeTemplateProps) => (
+  <Base>
+    <Container>
+      <Hero />
+    </Container>
+
+    <Container>
+      <Sobre />
+    </Container>
+
+    <Container>
+      <Beneficios />
+    </Container>
+
+    <Container>
+      <Cta />
+    </Container>
+
+    <Container>
+      <BannerBusca />
+    </Container>
+
+    <Container>
+      <TagHome therapyKind={tagsMock} />
+    </Container>
+  </Base>
+)
 
 export default Home

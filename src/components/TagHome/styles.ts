@@ -1,52 +1,30 @@
-import styled from 'styled-components'
-import theme from 'styles/theme'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div`
-  max-width: ${theme.grid.container};
-  margin: 0 auto;
-  height: 310px;
-  display: flex;
-  align-content: flex-start;
-  color: ${theme.colors.primary};
-  justify-content: start;
-  ${media.lessThan('medium')`
-      flex-direction: column;
-      max-width: 540px;
-      height: 900px;
-      margin: 10px;
-      justify-content: center;
-      align-items: center;
+export const List = styled.ul`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.small} 0 0;
+
+    ${media.greaterThan('medium')`
+      padding: ${theme.spacings.small} ${theme.spacings.xsmall} 0;
+      column-count: 2;
     `}
+
+    ${media.greaterThan('large')`
+      column-count: 3;
+    `}
+  `}
 `
-export const Container = styled.div`
-  width: 1400px;
-  height: 250px;
-  margin: 0 auto;
-  border-radius: 40px;
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-  margin: 50px;
-  ${media.lessThan('medium')`
-      flex-direction: column;
-      max-width: 540px;
-      height: 1400px;
-      margin: 10px;
-      justify-content: center;
-      align-items: center;
-    `}
 
-  li {
-    list-style: none;
-  }
-
-  a {
-    font-size: ${theme.font.sizes.large};
+export const Item = styled.li`
+  ${({ theme }) => css`
+    position: relative;
     color: ${theme.colors.primary};
-    align-self: center;
-    cursor: pointer;
-    line-height: 3.5rem;
-    font-weight: normal;
-  }
+    list-style: none;
+    padding-left: ${theme.spacings.small};
+
+    &:not(:last-child) {
+      margin-bottom: ${theme.spacings.xsmall};
+    }
+  `}
 `
