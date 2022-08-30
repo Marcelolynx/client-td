@@ -6,7 +6,6 @@ import theme from 'styles/theme'
 export const Wrapper = styled.footer`
   max-width: ${theme.grid.container};
   margin: 0 auto;
-  text-transform: uppercase;
 `
 
 export const Content = styled.div`
