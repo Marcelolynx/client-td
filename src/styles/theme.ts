@@ -1,5 +1,3 @@
-import { Graylog } from 'styled-icons/simple-icons'
-
 export default {
   grid: {
     container: '130rem',

@@ -17,12 +17,11 @@ export const Content = styled.div`
 
 export const SectionFooter = styled.section`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.large};
+    margin-top: ${theme.spacings.small};
     padding-bottom: ${theme.spacings.xsmall};
-    padding-top: ${theme.spacings.xxlarge};
-    background-color: ${theme.colors.white};
+    padding-top: ${theme.spacings.small};
     ${media.greaterThan('medium')`
-      padding-top: calc(${theme.spacings.xxlarge} * 2);
+      padding-top: calc(${theme.spacings.xxsmall} * 2);
     `}
   `}
 `
