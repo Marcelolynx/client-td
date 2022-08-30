@@ -18,7 +18,7 @@ export async function getStaticProps() {
       terapeutaInfo: {
         nome: 'Glauco Rocha',
         preco: '59.00',
-        description: ' Atuo há 20 anos com terapias integrativas.'
+        description: 'Atuo há 20 anos com terapias integrativas.'
       }
     }
   }
