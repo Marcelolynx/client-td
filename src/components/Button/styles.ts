@@ -32,11 +32,17 @@ const wrapperModifiers = {
         margin-left: ${theme.spacings.xxsmall};
       }
     }
+  `,
+  disabled: () => css`
+    &:disabled {
+      cursor: not-allowed;
+      filter: saturate(30%);
+    }
   `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, disabled }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -68,5 +74,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!size && wrapperModifiers[size](theme)};
     ${!!fullWidth && wrapperModifiers.fullWidth()};
     ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+    ${disabled && wrapperModifiers.disabled()};
   `}
 `

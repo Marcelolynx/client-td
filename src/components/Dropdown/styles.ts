@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const Title = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
-    color: ${theme.colors.white};
+    color: ${theme.colors.black};
     position: relative;
     display: flex;
     align-items: center;
@@ -15,8 +15,8 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    background: ${theme.colors.white};
-    color: ${theme.colors.black};
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
     margin-top: ${theme.spacings.small};
     position: absolute;
     right: 0;
@@ -25,7 +25,7 @@ export const Content = styled.div`
       position: absolute;
       border-right: 1.2rem solid transparent;
       border-left: 1.2rem solid transparent;
-      border-bottom: 1.2rem solid ${theme.colors.white};
+      border-bottom: 1.2rem solid ${theme.colors.primary};
       top: -1.2rem;
       right: 2.4rem;
     }
