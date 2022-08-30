@@ -20,7 +20,7 @@ const Auth = ({ title, children }: AuthProps) => (
         </Link>
 
         <div>
-          <Heading size="huge">
+          <Heading color="white" size="huge">
             Os melhores terapeutas
             <br /> em um só lugar
           </Heading>

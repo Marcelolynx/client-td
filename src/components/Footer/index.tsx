@@ -26,6 +26,9 @@ const Footer = () => (
         <Link href="/profissionais">
           <a>Profissionais</a>
         </Link>
+        <Link href="/paraTerapeuta">
+          <a>Para Terapeutas</a>
+        </Link>
         <Link href="/blog">
           <a>Blog</a>
         </Link>
@@ -56,28 +59,28 @@ const Footer = () => (
 
         <nav aria-labelledby="social media">
           <a
-            href="https://www.instagram.com/won-games"
+            href="https://www.instagram.com/"
             target="_blank"
             rel="noopenner, noreferrer"
           >
             Instagram
           </a>
           <a
-            href="https://www.twitter.com/won-games"
+            href="https://www.twitter.com/"
             target="_blank"
             rel="noopenner, noreferrer"
           >
             Twitter
           </a>
           <a
-            href="https://www.youtube.com/won-games"
+            href="https://www.youtube.com/"
             target="_blank"
             rel="noopenner, noreferrer"
           >
             Youtube
           </a>
           <a
-            href="https://www.facebook.com/won-games"
+            href="https://www.facebook.com/"
             target="_blank"
             rel="noopenner, noreferrer"
           >
