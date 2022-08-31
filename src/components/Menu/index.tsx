@@ -26,14 +26,21 @@ const Menu = ({ username }: MenuProps) => {
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Logo hideOnMobile />
+        <Link href="/" passHref>
+          <a>
+            <Logo hideOnMobile />
+          </a>
+        </Link>
       </S.LogoWrapper>
 
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
-          <S.MenuLink href="/">Home</S.MenuLink>
+          <Link href="/" passHref>
+            <S.MenuLink>Home</S.MenuLink>
+          </Link>
           <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
-          <S.MenuLink href="#">Blog</S.MenuLink>
+          <S.MenuLink href="/blog">Blog</S.MenuLink>
+          <S.MenuLink href="/paraTerapeuta">Sou Terapeuta</S.MenuLink>
         </S.MenuNav>
       </MediaMatch>
 
@@ -53,7 +60,9 @@ const Menu = ({ username }: MenuProps) => {
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
 
         <S.MenuNav>
-          <S.MenuLink href="#">Home</S.MenuLink>
+          <Link href="/" passHref>
+            <S.MenuLink href="#">Home</S.MenuLink>
+          </Link>
           <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
 
           {!!username && (

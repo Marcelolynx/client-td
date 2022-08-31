@@ -1,5 +1,10 @@
 import * as S from './styles'
 
+export type BlogProps = {
+  title: string
+  subtitle: string
+}
+
 const Blog = () => (
   <S.Wrapper>
     <S.Content>
