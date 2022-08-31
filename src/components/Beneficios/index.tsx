@@ -1,4 +1,3 @@
-import Sobre from 'components/Sobre'
 import * as S from './styles'
 
 const Beneficios = () => {
@@ -6,9 +5,9 @@ const Beneficios = () => {
     <S.Wrapper>
       <S.Illustration
         src="/img/Imagem-home-02.jpg"
-        alt="Um desenvolvedor de frente para uma tela com código."
+        alt="alguem segurando um cartao do terapia de todos"
       />
-      <S.Textfield>
+      <S.BenefitsContainer>
         <S.ContentInfo>
           <S.Icons src="/img/icons/star.png" alt="icone de uma estrela" />
           <p>Desconto em consultas presenciais e online</p>
@@ -21,8 +20,8 @@ const Beneficios = () => {
           <S.Icons src="/img/icons/heart.png" alt="icone de uma estrela" />
           <p>Inclua dependentes</p>
         </S.ContentInfo>
-        <button>Adquira já o seu</button>
-      </S.Textfield>
+        <S.Button>Adquira já o seu</S.Button>
+      </S.BenefitsContainer>
     </S.Wrapper>
   )
 }

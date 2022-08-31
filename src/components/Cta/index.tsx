@@ -2,15 +2,14 @@ import * as S from './styles'
 import { Dice1 } from '@styled-icons/bootstrap/Dice1'
 import { Check2 } from '@styled-icons/bootstrap/Check2'
 import { Dice2 } from '@styled-icons/bootstrap/Dice2'
-import Button from 'components/Button'
 
 const Cta = () => {
   return (
     <S.Wrapper>
       <S.TextCta>Nossos planos são ideais para você!</S.TextCta>
       <S.TextVantagens>
-        Tem dependentes? inclua sua familia
-        <br /> e ganhe descontos ainda maiores.
+        Tem dependentes? Inclua sua familia
+        <br />e ganhe descontos ainda maiores.
       </S.TextVantagens>
       <S.Textterapeutas>
         Tenha acesso a terapeutas pertinho de você.

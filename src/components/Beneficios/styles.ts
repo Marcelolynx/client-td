@@ -4,58 +4,76 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   max-width: ${theme.grid.container};
-  margin: 0 auto;
-  margin-top: 50px;
-  height: 310px;
+  margin: 50px auto;
   display: flex;
-  align-content: flex-start;
+  align-content: center;
   color: ${theme.colors.primary};
-  justify-content: start;
+  justify-content: center;
 
   ${media.lessThan('medium')`
-      flex-direction: column;
-      max-width: 540px;
-      height: 600px;
-    `}
+    flex-direction: column;
+  `}
 `
 
 export const Illustration = styled.img`
-  width: 525px;
-  height: 310px;
+  max-width: 525px;
+  max-height: 310px;
 `
-export const Textfield = styled.div`
+
+export const BenefitsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  padding: 20px;
-  margin-left: 20px;
+  padding-top: 30px;
+  margin-left: ${theme.spacings.xsmall};
   font-weight: bold;
-  font-size: 20px;
-  text-align: start;
+  font-size: ${theme.font.sizes.xlarge};
 
-  button {
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.white};
-    padding: 10px;
-    height: 60px;
-    width: 250px;
-    font-size: 26px;
+  ${media.greaterThan('medium')`
+    padding-left: 20px;
+  `}
+`
+
+export const Button = styled.button`
+  background-color: ${theme.colors.primary};
+  color: ${theme.colors.white};
+  height: 50px;
+  width: 200px;
+  font-size: ${theme.font.sizes.xlarge};
+  border-radius: 20px;
+  margin-top: 25px;
+  font-weight: bold;
+  border: none;
+
+  ${media.lessThan('medium')`
+    align-self: center;
+    height: 40px;
     border-radius: 20px;
-    margin: 25px;
-    font-weight: bold;
-    border: none;
-  }
+    width: 200px;
+    font-size: 16px;
+  `}
 `
 
 export const ContentInfo = styled.div`
   display: flex;
   align-items: center;
-  justify-content: start;
   padding: 5px;
+
+  p {
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.large};
+      margin-bottom: 10px;
+    `}
+  }
 `
 
 export const Icons = styled.img`
   height: 49px;
   width: 49px;
   margin: 0 10px 10px 0;
+
+  ${media.lessThan('medium')`
+    height: 25px;
+    width: 25px;
+    margin: 0 10px 10px 0;
+  `}
 `
