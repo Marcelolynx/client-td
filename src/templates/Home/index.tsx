@@ -2,20 +2,19 @@ import BannerBusca from 'components/BannerBusca'
 import Beneficios from 'components/Beneficios'
 import { Container } from 'components/Container'
 import Cta from 'components/Cta'
-import Hero from 'components/Hero'
+import Highlight, { HighlightProps } from 'components/Highlight'
 import Sobre from 'components/Sobre'
 import TagHome, { TagProps } from 'components/TagHome'
 import Base from 'templates/Base'
 
 export type HomeTemplateProps = {
   tagsMock: TagProps['therapyKind']
+  highlightMock: HighlightProps
 }
 
-const Home = ({ tagsMock }: HomeTemplateProps) => (
+const Home = ({ tagsMock, highlightMock }: HomeTemplateProps) => (
   <Base>
-    <Container>
-      <Hero />
-    </Container>
+    <Highlight {...highlightMock} />
 
     <Container>
       <Sobre />
@@ -25,9 +24,9 @@ const Home = ({ tagsMock }: HomeTemplateProps) => (
       <Beneficios />
     </Container>
 
-    <Container>
+    {/* <Container>
       <Cta />
-    </Container>
+    </Container> */}
 
     <Container>
       <BannerBusca />

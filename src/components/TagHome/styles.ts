@@ -4,7 +4,7 @@ import media from 'styled-media-query'
 export const List = styled.ul`
   ${({ theme }) => css`
     max-width: ${theme.grid.container};
-    margin: 0 auto;
+    margin: ${theme.spacings.small} auto;
     text-transform: uppercase;
     padding: ${theme.spacings.small} 0 0;
 
