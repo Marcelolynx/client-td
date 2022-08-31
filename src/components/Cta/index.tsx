@@ -2,6 +2,7 @@ import * as S from './styles'
 import { Dice1 } from '@styled-icons/bootstrap/Dice1'
 import { Check2 } from '@styled-icons/bootstrap/Check2'
 import { Dice2 } from '@styled-icons/bootstrap/Dice2'
+import Link from 'next/link'
 
 const Cta = () => {
   return (
@@ -57,7 +58,9 @@ const Cta = () => {
               </ul>
             </S.BoxList>
             <div>
-              <S.Button> Assine agora</S.Button>
+              <Link href="/sign-up" passHref>
+                <S.Button> Assine agora</S.Button>
+              </Link>
             </div>
           </S.SingleCard>
 
@@ -106,7 +109,9 @@ const Cta = () => {
                 </li>
               </ul>
             </S.BoxList>
-            <S.ButtonWhite> Assine agora</S.ButtonWhite>
+            <Link href="/sign-up" passHref>
+              <S.ButtonWhite> Assine agora</S.ButtonWhite>
+            </Link>
           </S.FamilyCard>
 
           <S.SingleCard>
@@ -142,7 +147,9 @@ const Cta = () => {
                 </li>
               </ul>
             </S.BoxList>
-            <S.Button> Assine agora</S.Button>
+            <Link href="/sign-up" passHref>
+              <S.Button> Assine agora</S.Button>
+            </Link>
           </S.SingleCard>
         </S.BoxCard>
       </S.ContainerCard>
