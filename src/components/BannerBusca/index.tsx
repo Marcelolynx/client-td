@@ -3,14 +3,12 @@ import * as S from './styles'
 
 const BannerBusca = () => {
   return (
-    <S.Wrapper>
-      <S.Container>
-        <S.TextSearch>Você Precisa de qual terapia hoje?</S.TextSearch>
-        <Link href="/sign-up" passHref>
-          <a>Encontre Terapeutas perto de você.</a>
-        </Link>
-      </S.Container>
-    </S.Wrapper>
+    <S.Container>
+      <S.Title>Você Precisa de qual terapia hoje?</S.Title>
+      <Link href="/sign-up" passHref>
+        <S.Link>Encontre Terapeutas perto de você.</S.Link>
+      </Link>
+    </S.Container>
   )
 }
 

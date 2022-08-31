@@ -8,13 +8,18 @@ export const List = styled.ul`
     text-transform: uppercase;
     padding: ${theme.spacings.small} 0 0;
 
-    ${media.greaterThan('medium')`
+    ${media.lessThan('medium')`
       padding: ${theme.spacings.small} ${theme.spacings.xsmall} 0;
       column-count: 2;
     `}
 
-    ${media.greaterThan('large')`
+    ${media.greaterThan('medium')`
+      padding: ${theme.spacings.small} ${theme.spacings.xsmall} 0;
       column-count: 3;
+    `}
+
+    ${media.greaterThan('large')`
+      column-count: 4;
     `}
   `}
 `
