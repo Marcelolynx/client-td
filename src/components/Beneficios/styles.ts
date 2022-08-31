@@ -43,6 +43,7 @@ export const Button = styled.button`
   margin-top: 25px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 
   ${media.lessThan('medium')`
     align-self: center;
