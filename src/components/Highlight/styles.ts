@@ -1,7 +1,11 @@
 import { Container } from 'components/Container'
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import media, { generateMedia } from 'styled-media-query'
 import { HighlightProps } from '.'
+
+const customMedia = generateMedia({
+  mediumPlus: '1024px'
+})
 
 type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
 
@@ -16,7 +20,7 @@ const wrapperModifiers = {
   `,
   left: () => css`
     grid-template-areas: 'content floatimage';
-    grid-template-columns: 1.3fr 2fr;
+    grid-template-columns: 1.8fr 2fr;
 
     ${media.lessThan('medium')`
       grid-template-areas: 'content';
@@ -31,7 +35,7 @@ const wrapperModifiers = {
     ${FloatImage} {
       justify-self: end;
 
-      ${media.lessThan('medium')`
+      ${customMedia.lessThan('mediumPlus')`
         display: none;
       `}
     }
@@ -61,14 +65,11 @@ export const FloatImage = styled.img`
   ${({ theme }) => css`
     grid-area: floatimage;
     z-index: ${theme.layers.base};
-    max-height: 30rem;
-    margin-right: 80px;
-    max-width: 100%;
+    padding-right: 80px;
+    margin-top: 10px;
     align-self: flex-end;
-
-    ${media.greaterThan('medium')`
-      max-height: 50rem;
-    `}
+    max-width: 100%;
+    max-height: 55rem;
   `}
 `
 
