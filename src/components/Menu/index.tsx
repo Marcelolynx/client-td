@@ -32,7 +32,7 @@ const Menu = () => {
 
       <S.LogoWrapper>
         <Link href="/" passHref>
-          <a>{width > breakPoint ? <Logo /> : <LogoMobile />}</a>
+          <a>{width >= breakPoint ? <Logo /> : <LogoMobile />}</a>
         </Link>
       </S.LogoWrapper>
 
