@@ -90,6 +90,10 @@ export const Title = styled.h2`
     font-size: ${theme.font.sizes.huge};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.white};
+
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.xhuge};
+    `}
   `}
 `
 

@@ -9,7 +9,7 @@ export const List = styled.ul`
     padding: ${theme.spacings.small} 0 0;
 
     ${media.lessThan('medium')`
-      padding: ${theme.spacings.small} ${theme.spacings.xsmall} 0;
+      padding: ${theme.spacings.small} 0;
       column-count: 2;
     `}
 

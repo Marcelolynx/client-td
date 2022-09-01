@@ -24,11 +24,11 @@ export const BenefitsContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  margin-left: ${theme.spacings.xsmall};
   font-weight: bold;
   font-size: ${theme.font.sizes.xlarge};
 
   ${media.greaterThan('medium')`
+    margin-left: ${theme.spacings.xsmall};
     padding-left: 20px;
   `}
 `

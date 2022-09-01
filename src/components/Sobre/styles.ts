@@ -27,7 +27,9 @@ export const About = styled.div`
   margin-left: ${theme.spacings.small};
 
   ${media.lessThan('medium')`
+    margin-left: 0px;
     padding-left: 0px;
+    text-align: left;
   `}
 `
 
