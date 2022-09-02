@@ -36,7 +36,8 @@ export default {
     gray: '#8F8F8F',
     darkGray: '#2E2F42',
     lightPurple: '#734273',
-    danger: '#FF6347'
+    danger: '#FF6347',
+    bgCard: '#F7F7F7'
   },
   spacings: {
     xxsmall: '0.8rem',
