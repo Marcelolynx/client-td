@@ -32,7 +32,7 @@ export const MenuGroup = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
-    align-items: center;
+    margin-top: ${theme.spacings.xxsmall};
     > div {
       margin-left: ${theme.spacings.xsmall};
     }
@@ -41,7 +41,7 @@ export const MenuGroup = styled.div`
 
 export const MenuNav = styled.div`
   ${({ theme }) => css`
-    margin-left: ${theme.spacings.small};
+    margin: ${theme.spacings.xxsmall} 0 0 ${theme.spacings.small};
   `}
 `
 
@@ -76,9 +76,10 @@ export const MenuLink = styled.a`
     }
   `}
 `
-type MenuFullProps = {
+export type MenuFullProps = {
   isOpen: boolean
 }
+
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     display: flex;

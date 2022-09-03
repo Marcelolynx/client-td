@@ -6,7 +6,6 @@ import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import ProCard, { ProCardProps } from 'components/ProCard/'
 import { Grid } from 'components/Grid'
 import BannerAdsense from 'components/BannerAdsense'
-import { Container } from 'components/Container'
 
 export type ProfissionaisTemplateProps = {
   profissionais?: ProCardProps[]
@@ -18,12 +17,13 @@ const ProfissionaisTemplate = ({
   profissionais = []
 }: ProfissionaisTemplateProps) => (
   <Base>
-    <Container>
+    <S.Wrapper>
       <S.Main>
         <ExploreSidebar
           items={filterItems}
           onFilter={() => console.log('filter')}
         />
+
         <section>
           <S.Banner>
             <BannerAdsense />
@@ -41,7 +41,7 @@ const ProfissionaisTemplate = ({
           </S.ShowMore>
         </section>
       </S.Main>
-    </Container>
+    </S.Wrapper>
   </Base>
 )
 

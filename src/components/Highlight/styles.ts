@@ -1,10 +1,12 @@
 import { Container } from 'components/Container'
 import styled, { css } from 'styled-components'
 import media, { generateMedia } from 'styled-media-query'
+
 import { HighlightProps } from '.'
 
 const customMedia = generateMedia({
-  mediumPlus: '1024px'
+  mediumPlus: '800px',
+  minLarge: '1024px'
 })
 
 type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
@@ -65,11 +67,18 @@ export const FloatImage = styled.img`
   ${({ theme }) => css`
     grid-area: floatimage;
     z-index: ${theme.layers.base};
-    padding-right: 80px;
+    padding-right: ${theme.spacings.large};
     margin-top: 10px;
     align-self: flex-end;
     max-width: 100%;
     max-height: 55rem;
+
+    ${customMedia.between('mediumPlus', 'minLarge')`
+      object-fit: contain;
+      padding-right: ${theme.spacings.small};
+      width: 100%;
+      height: 100%;
+    `}
   `}
 `
 

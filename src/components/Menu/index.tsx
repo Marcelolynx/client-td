@@ -8,41 +8,42 @@ import LogoMobile from 'components/LogoMobile'
 import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
+import { useHome } from 'contexts/HomeContext'
 
-const breakPoint = 767
+const breakPoint = 768
 
 export type MenuProps = {
   username?: string
 }
 
 const Menu = ({ username }: MenuProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const { menuIsOpen, openMenu } = useHome()
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth)
-    window.addEventListener('load', handleWindowResize)
+    const handleWindowLoad = () => setWidth(window.innerWidth)
+    window.addEventListener('load', handleWindowLoad)
 
-    return () => window.removeEventListener('load', handleWindowResize)
-  })
+    return () => window.removeEventListener('load', handleWindowLoad)
+  }, [])
 
   return (
     <S.Wrapper>
       <MediaMatch lessThan="medium">
-        <S.IconWrapper onClick={() => setIsOpen(true)}>
+        <S.IconWrapper onClick={openMenu}>
           <MenuIcon aria-label="Open Menu" />
         </S.IconWrapper>
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Link href="/" passHref>
+        <Link href="/home" passHref>
           <a>{width > breakPoint ? <Logo /> : <LogoMobile />}</a>
         </Link>
       </S.LogoWrapper>
 
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
-          <Link href="/" passHref>
+          <Link href="/home" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
           <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
@@ -59,8 +60,8 @@ const Menu = ({ username }: MenuProps) => {
         </MediaMatch>
       </S.MenuGroup>
 
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <CloseIcon aria-label="Fechar Menu" onClick={() => setIsOpen(false)} />
+      <S.MenuFull aria-hidden={!menuIsOpen} isOpen={menuIsOpen}>
+        <CloseIcon aria-label="Close Menu" onClick={openMenu} />
 
         <S.MenuNav>
           <Link href="/" passHref>
@@ -77,7 +78,7 @@ const Menu = ({ username }: MenuProps) => {
           )}
         </S.MenuNav>
 
-        {isOpen && (
+        {menuIsOpen && (
           <S.RegisterBox>
             <Link href="/sign-up" passHref>
               <Button fullWidth size="large" as="a">

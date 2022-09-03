@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import Banner, { BannerProps } from 'components/Banner'
 import Slider, { SliderSettings } from 'components/Slider'
 
-=======
-import { BannerProps } from 'components/Banner'
->>>>>>> b188ff415ec603036c154219e750796f7aa46fc0
 import * as S from './styles'
 
 export type BannerSliderProps = {

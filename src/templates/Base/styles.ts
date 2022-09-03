@@ -1,11 +1,16 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
+import { MenuFullProps } from 'components/Menu/styles'
+
+export const Wrapper = styled.div<MenuFullProps>`
+  ${({ isOpen }) => css`
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    overflow: ${isOpen ? 'hidden' : 'auto'};
+  `}
 `
 
 export const Content = styled.div`
