@@ -6,6 +6,7 @@ import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import ProCard, { ProCardProps } from 'components/ProCard/'
 import { Grid } from 'components/Grid'
 import BannerAdsense from 'components/BannerAdsense'
+import { Container } from 'components/Container'
 
 export type ProfissionaisTemplateProps = {
   profissionais?: ProCardProps[]
@@ -17,26 +18,30 @@ const ProfissionaisTemplate = ({
   profissionais = []
 }: ProfissionaisTemplateProps) => (
   <Base>
-    <S.Main>
-      <ExploreSidebar
-        items={filterItems}
-        onFilter={() => console.log('filter')}
-      />
-      <section>
-        <S.Banner>
-          <BannerAdsense />
-        </S.Banner>
-        <Grid>
-          {profissionais.map((item) => (
-            <ProCard key={item.title} {...item} />
-          ))}
-        </Grid>
-        <S.ShowMore role="button" onClick={() => console.log('Show More')}>
-          <p>Ver Mais</p>
-          <ArrowDown size={35} />
-        </S.ShowMore>
-      </section>
-    </S.Main>
+    <Container>
+      <S.Main>
+        <ExploreSidebar
+          items={filterItems}
+          onFilter={() => console.log('filter')}
+        />
+        <section>
+          <S.Banner>
+            <BannerAdsense />
+          </S.Banner>
+
+          <Grid>
+            {profissionais.map((item) => (
+              <ProCard key={item.title} {...item} />
+            ))}
+          </Grid>
+
+          <S.ShowMore role="button" onClick={() => console.log('Show More')}>
+            <p>Ver Mais</p>
+            <ArrowDown size={35} />
+          </S.ShowMore>
+        </section>
+      </S.Main>
+    </Container>
   </Base>
 )
 

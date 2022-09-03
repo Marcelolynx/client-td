@@ -20,3 +20,10 @@ export const Content = styled.div`
     `}
   `}
 `
+
+export const Sidebar = styled.div`
+  ${({ theme }) => css`
+    max-width: 120px;
+    background: ${theme.colors.lightGray};
+  `}
+`

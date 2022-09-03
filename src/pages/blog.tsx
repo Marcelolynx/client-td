@@ -1,15 +1,5 @@
-import Footer from 'components/Footer'
-import Menu from 'components/Menu'
+import Post from 'components/Post'
 
 export default function Blog() {
-  return (
-    <>
-      <Menu />
-      <div>
-        <img src="../public/img/Simulacao-Home.png" />
-      </div>
-
-      <Footer />
-    </>
-  )
+  return <Post />
 }
