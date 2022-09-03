@@ -50,9 +50,10 @@ export const MenuLink = styled.a`
     position: relative;
     color: ${theme.colors.primary};
     font-size: ${theme.font.sizes.medium};
-    margin: 0.3rem ${theme.spacings.small} 0;
+    margin: 1rem ${theme.spacings.xxsmall} 0;
     text-decoration: none;
     text-align: center;
+
     &:hover {
       &::after {
         content: '';
@@ -84,7 +85,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
     flex-direction: column;
     justify-content: space-between;
     background: ${theme.colors.white};
-    position: absolute;
+    position: fixed;
+    z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
     left: 0;
@@ -94,6 +96,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
+
     > svg {
       position: absolute;
       top: 0;

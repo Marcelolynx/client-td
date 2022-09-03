@@ -16,7 +16,7 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
   })
 
-  it('should render the heading', () => {
+  it('should render the open/close menu', () => {
     renderWithTheme(<Menu />)
 
     // select our MenuFull

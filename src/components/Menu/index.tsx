@@ -11,7 +11,11 @@ import MediaMatch from 'components/MediaMatch'
 
 const breakPoint = 767
 
-const Menu = () => {
+export type MenuProps = {
+  username?: string
+}
+
+const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [width, setWidth] = useState(0)
 
@@ -56,13 +60,21 @@ const Menu = () => {
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
+        <CloseIcon aria-label="Fechar Menu" onClick={() => setIsOpen(false)} />
 
         <S.MenuNav>
           <Link href="/" passHref>
-            <S.MenuLink href="#">Home</S.MenuLink>
+            <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="profissionais">Profissionais</S.MenuLink>
+          <Link href="/profissionais" passHref>
+            <S.MenuLink>Profissionais</S.MenuLink>
+          </Link>
+          {!!username && (
+            <>
+              <S.MenuLink href="#">Minha conta</S.MenuLink>
+              <S.MenuLink href="#">Sair</S.MenuLink>
+            </>
+          )}
         </S.MenuNav>
 
         {isOpen && (
@@ -74,7 +86,7 @@ const Menu = () => {
             </Link>
             <span>OU</span>
             <Link href="/sign-up" passHref>
-              <S.CreateAccount href="#" title="Assine Agora">
+              <S.CreateAccount title="Assine Agora">
                 Assine Agora
               </S.CreateAccount>
             </Link>
