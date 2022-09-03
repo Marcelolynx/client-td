@@ -1,3 +1,4 @@
+import { BannerProps } from 'components/Banner'
 import * as S from './styles'
 
 export type BannerSliderProps = {
