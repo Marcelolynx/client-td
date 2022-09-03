@@ -19,9 +19,7 @@ const Post = () => (
             <h1>Titulo</h1>
             <h1>Subtitle</h1>
           </Grid>
-          <S.Sidebar>
-            <banner>Adsense</banner>
-          </S.Sidebar>
+          <S.Sidebar>{/* <banner>Adsense</banner> */}</S.Sidebar>
         </S.Content>
       </S.Wrapper>
     </Container>
