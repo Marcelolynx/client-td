@@ -29,7 +29,7 @@ const Menu = ({ username }: MenuProps) => {
 
   return (
     <S.Wrapper>
-      <MediaMatch lessThan="medium">
+      <MediaMatch lessThan="large">
         <S.IconWrapper onClick={openMenu}>
           <MenuIcon aria-label="Open Menu" />
         </S.IconWrapper>
@@ -41,7 +41,7 @@ const Menu = ({ username }: MenuProps) => {
         </Link>
       </S.LogoWrapper>
 
-      <MediaMatch greaterThan="medium">
+      <MediaMatch greaterThan="large">
         <S.MenuNav>
           <Link href="/home" passHref>
             <S.MenuLink>Home</S.MenuLink>
