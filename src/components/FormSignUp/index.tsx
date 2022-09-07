@@ -9,12 +9,18 @@ import {
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
-import { FormError, FormLink, FormWrapper } from 'components/Form'
+import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
 import {
   FieldErrors,
   signUpValidate,
   UsersPermissionsRegisterInput
 } from 'utils/validations'
+import {
+  MUTATION_ASSOCIADO_REGISTER,
+  TAssociadoRegisterData,
+  TAssociadoRegisterVariables
+} from 'graphql/mutations/associadoRegister'
+import { useMutation } from '@apollo/client'
 
 const FormSignUp = () => {
   const [formError, setFormError] = useState('')
@@ -23,6 +29,19 @@ const FormSignUp = () => {
     name: '',
     email: '',
     password: ''
+  })
+
+  const [createAssociado, { loading }] = useMutation<
+    TAssociadoRegisterData,
+    TAssociadoRegisterVariables
+  >(MUTATION_ASSOCIADO_REGISTER, {
+    onError: () =>
+      setFormError(
+        'Erro ao criar a conta. Por favor, tente novamente mais tarde.'
+      ),
+    onCompleted: () => {
+      alert('User criado com sucesso!')
+    }
   })
 
   const handleInput = (field: string, value: string) => {
@@ -41,6 +60,16 @@ const FormSignUp = () => {
       setFieldError(errors)
       return
     }
+
+    setFieldError({})
+
+    createAssociado({
+      variables: {
+        email: values.email,
+        nomeCompleto: values.name,
+        password: values.password
+      }
+    })
   }
 
   return (
@@ -84,8 +113,8 @@ const FormSignUp = () => {
           icon={<Lock />}
         />
 
-        <Button size="large" fullWidth>
-          Cadastrar Agora!
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : <span>Cadastrar Agora!</span>}
         </Button>
 
         <FormLink>
