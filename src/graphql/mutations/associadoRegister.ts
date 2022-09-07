@@ -9,7 +9,7 @@ export type TAssociadoRegisterData = {
 export type TAssociadoRegisterVariables = {
   nomeCompleto: string
   email: string
-  password?: string
+  password: string
 }
 
 export const MUTATION_ASSOCIADO_REGISTER = gql`
