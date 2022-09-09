@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 
-export type TAssociadoRegisterData = {
+export type TTerapeutaRegisterData = {
   data: {
     id: number
   }

@@ -1,4 +1,5 @@
 import { useState, InputHTMLAttributes } from 'react'
+import { formatPhoneNumber } from 'utils/formatters'
 
 import * as S from './styles'
 
@@ -11,6 +12,7 @@ export type TextFieldProps = {
   iconPosition?: 'left' | 'right'
   disabled?: boolean
   error?: string
+  formatPhone?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
@@ -21,13 +23,16 @@ const TextField = ({
   initialValue = '',
   error,
   disabled = false,
+  formatPhone = false,
   onInputChange,
   ...props
 }: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.currentTarget.value
+    const newValue = formatPhone
+      ? formatPhoneNumber(e.currentTarget.value, true)
+      : e.currentTarget.value
     setValue(newValue)
 
     !!onInputChange && onInputChange(newValue)

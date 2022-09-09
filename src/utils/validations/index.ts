@@ -4,6 +4,8 @@ export interface UsersPermissionsRegisterInput {
   name: string
   email: string
   password: string
+  specialtie: string
+  phone: string
 }
 
 export type FieldErrors = {
@@ -16,6 +18,12 @@ const fieldsValidations = {
     'any.required': `Favor preencher um nome válido`,
     'string.min': `Favor preencher um nome válido`
   }),
+  phone: Joi.string().min(11).messages({
+    'string.empty': `Favor preencher um telefone válido`,
+    'any.required': `Favor preencher um telefone válido`,
+    'string.min': `Favor preencher um telefone válido`
+  }),
+  specialtie: Joi.string(),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()
@@ -66,7 +74,15 @@ export function signInValidate(values: SignInValues) {
   return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }
 
-export function signUpValidate(values: UsersPermissionsRegisterInput) {
+export function signUpValidate(
+  values: Omit<UsersPermissionsRegisterInput, 'specialtie' | 'phone'>
+) {
+  const schema = Joi.object(fieldsValidations)
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+export function signUpTerapeutaValidate(values: UsersPermissionsRegisterInput) {
   const schema = Joi.object(fieldsValidations)
 
   return getFieldErrors(schema.validate(values, { abortEarly: false }))

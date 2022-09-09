@@ -22,10 +22,12 @@ import {
 } from 'graphql/mutations/associadoRegister'
 import { useMutation } from '@apollo/client'
 
+type TFormSignUp = Omit<UsersPermissionsRegisterInput, 'specialtie' | 'phone'>
+
 const FormSignUp = () => {
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErrors>({})
-  const [values, setValues] = useState<UsersPermissionsRegisterInput>({
+  const [values, setValues] = useState<TFormSignUp>({
     name: '',
     email: '',
     password: ''

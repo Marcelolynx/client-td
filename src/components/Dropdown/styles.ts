@@ -1,62 +1,67 @@
 import styled, { css } from 'styled-components'
 
-export const Title = styled.div`
+export const DropdownWrapper = styled.div`
   ${({ theme }) => css`
-    cursor: pointer;
+    display: flex;
+    background: ${theme.colors.lightGray};
+    border-radius: 0.2rem;
+    padding: 0 ${theme.spacings.xsmall};
+    border: 0.2rem solid;
+    border-color: ${theme.colors.lightGray};
+
+    &:focus-within {
+      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+    }
+  `}
+`
+
+export const Icon = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    width: 2.2rem;
+    color: ${theme.colors.gray};
+    order: '0';
+    & > svg {
+      width: 100%;
+    }
+  `}
+`
+export const DropdownContainer = styled.div`
+  ${({ theme }) => css`
     color: ${theme.colors.black};
+    font-family: ${theme.font.family};
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall};
+    padding-left: ${theme.spacings.xsmall};
+    background: transparent;
+    border: 0;
+    outline: none;
+    width: 100%;
+    text-align: left;
     position: relative;
-    display: flex;
-    align-items: center;
-    padding-right: 2.4rem;
   `}
 `
 
-export const Content = styled.div`
+export const DropdownInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const DropdownMenu = styled.div`
   ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    background: ${theme.colors.primary};
-    color: ${theme.colors.white};
-    margin-top: ${theme.spacings.small};
     position: absolute;
-    right: 0;
-    &::before {
-      content: '';
-      position: absolute;
-      border-right: 1.2rem solid transparent;
-      border-left: 1.2rem solid transparent;
-      border-bottom: 1.2rem solid ${theme.colors.primary};
-      top: -1.2rem;
-      right: 2.4rem;
-    }
+    transform: translateY(4px);
+    width: 100%;
+    border: 1px solid #ccc;
+    background: ${theme.colors.white};
+    border-radius: 5px;
+    overflow-x: auto;
+    max-height: 150px;
   `}
 `
 
-type WrapperProps = {
-  isOpen?: boolean
-}
-
-const wrapperModifiers = {
-  open: () => css`
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  `,
-  close: () => css`
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-2rem);
-  `
-}
-
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isOpen }) => css`
-    position: relative;
-    width: max-content;
-    ${Content} {
-      transition: transform 0.2s ease-in, opacity ${theme.transition.default};
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
-    }
-  `}
+export const Item = styled.div`
+  cursor: pointer;
+  padding: 5px;
 `
