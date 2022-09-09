@@ -1,7 +1,7 @@
 import FormSignUp from 'components/FormSignUp'
 import Auth from 'templates/Auth'
 
-export default function SingUp() {
+export default function SignUp() {
   return (
     <Auth title="Cadastre-se:">
       <FormSignUp />

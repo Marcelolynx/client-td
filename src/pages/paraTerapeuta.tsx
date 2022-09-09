@@ -1,10 +1,22 @@
-import FormSignUpTerapeuta from 'components/FormSignUpTerapeuta'
+import FormSignUpTerapeuta, {
+  TFormSignUpTerapeuta
+} from 'components/FormSignUpTerapeuta'
 import Auth from 'templates/Auth'
 
-export default function SingUp() {
+import options from 'components/FormSignUpTerapeuta/mock'
+
+export default function SignUpTerapeuta(props: TFormSignUpTerapeuta) {
   return (
     <Auth title="Cadastre-se:">
-      <FormSignUpTerapeuta />
+      <FormSignUpTerapeuta {...props} />
     </Auth>
   )
+}
+
+export function getStaticProps() {
+  return {
+    props: {
+      options
+    }
+  }
 }

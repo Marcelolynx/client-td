@@ -50,12 +50,11 @@ const GlobalStyles: GlobalStyleComponent<
        url('/fonts/poppins-v20-latin-700.woff2') format('woff2');
 }
 
-
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
