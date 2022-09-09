@@ -22,15 +22,6 @@ const FormSignIn = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-
-    const errors = signInValidate(values)
-
-    if (Object.keys(errors).length) {
-      setFieldError(errors)
-      return
-    }
-
-    setFieldError({})
   }
 
   return (
