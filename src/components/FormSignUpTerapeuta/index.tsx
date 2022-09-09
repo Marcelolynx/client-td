@@ -16,7 +16,7 @@ import { FormError, FormLink, FormLoading, FormWrapper } from 'components/Form'
 import { useState } from 'react'
 import {
   FieldErrors,
-  signUpValidate,
+  signUpTerapeutaValidate,
   UsersPermissionsRegisterInput
 } from 'utils/validations'
 import {
@@ -76,7 +76,7 @@ const FormSignUpTerapeuta = ({ options }: TFormSignUpTerapeuta) => {
     event.preventDefault()
     setFormError('')
 
-    const errors = signUpValidate(values)
+    const errors = signUpTerapeutaValidate(values)
 
     if (Object.keys(errors).length) {
       setFieldError(errors)

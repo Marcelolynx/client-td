@@ -5,7 +5,7 @@ import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
 import { FormError, FormLink, FormWrapper } from 'components/Form'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
-import { FieldErrors, signInValidate } from 'utils/validations'
+import { FieldErrors } from 'utils/validations'
 
 import * as S from './styles'
 

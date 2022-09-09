@@ -18,11 +18,12 @@ const fieldsValidations = {
     'any.required': `Favor preencher um nome válido`,
     'string.min': `Favor preencher um nome válido`
   }),
-  phone: Joi.string().min(11).required().messages({
+  phone: Joi.string().min(11).messages({
     'string.empty': `Favor preencher um telefone válido`,
     'any.required': `Favor preencher um telefone válido`,
     'string.min': `Favor preencher um telefone válido`
   }),
+  specialtie: Joi.string(),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()

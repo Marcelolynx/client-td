@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { DropdownProps } from '.'
 
 export const DropdownWrapper = styled.div`
   ${({ theme }) => css`
