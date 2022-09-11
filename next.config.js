@@ -2,17 +2,17 @@
 const withPWA = require('next-pwa')
 const isProd = process.env.NODE_ENV === 'production'
 
-module.exports = withPWA({
-  eslint: {
-    ignoreDuringBuilds: true
-  },
-  swcMinify: true,
-  experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true
-  },
+const nextConfig = {
   pwa: {
     dest: 'public',
     disable: !isProd
   }
-})
+}
+
+module.exports = () => {
+  const plugins = [withPWA]
+  const config = plugins.reduce((acc, next) => next(acc), {
+    ...nextConfig
+  })
+  return config
+}
