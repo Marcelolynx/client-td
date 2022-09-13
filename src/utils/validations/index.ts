@@ -1,10 +1,11 @@
+import { TOption } from 'components/Dropdown'
 import Joi from 'joi'
 
 export interface UsersPermissionsRegisterInput {
   name: string
   email: string
   password: string
-  specialtie: string
+  specialtie: TOption[]
   phone: string
 }
 
@@ -23,7 +24,9 @@ const fieldsValidations = {
     'any.required': `Favor preencher um telefone válido`,
     'string.min': `Favor preencher um telefone válido`
   }),
-  specialtie: Joi.string(),
+  specialtie: Joi.array().min(1).required().messages({
+    'array.min': `Selecionar ao menos uma especialidade`
+  }),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()

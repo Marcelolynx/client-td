@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client'
+import { TOption } from 'components/Dropdown'
 
 export type TTerapeutaRegisterData = {
   data: {
@@ -10,7 +11,7 @@ export type TTerapeutaRegisterVariables = {
   nome: string
   email: string
   telefone: string
-  especialidade: string
+  especialidades: TOption[]
   senha: string
 }
 
@@ -19,7 +20,7 @@ export const MUTATION_TERAPEUTA_REGISTER = gql`
     $nome: String!
     $email: String!
     $telefone: String!
-    $especialidade: ENUM_TERAPEUTA_ESPECIALIDADE!
+    $especialidades: JSON!
     $senha: String!
   ) {
     createTerapeuta(
@@ -27,7 +28,7 @@ export const MUTATION_TERAPEUTA_REGISTER = gql`
         nome: $nome
         email: $email
         telefone: $telefone
-        especialidade: $especialidade
+        especialidades: $especialidades
         senha: $senha
       }
     ) {

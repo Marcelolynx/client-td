@@ -26,23 +26,26 @@ import {
 } from 'graphql/mutations/terapeutaRegister'
 import Dropdown, { TOption } from 'components/Dropdown'
 import { formatToNumber } from 'utils/formatters'
+import { OtherSpecialties } from 'utils/constants'
 
 export type TFormSignUpTerapeuta = {
   options: TOption[]
 }
-
-const OtherSpecialties = 'Outro'
 
 const FormSignUpTerapeuta = ({ options }: TFormSignUpTerapeuta) => {
   const [formError, setFormError] = useState('')
   const [showOtherSpecialtieField, setShowOtherSpecialtieField] =
     useState(false)
   const [fieldError, setFieldError] = useState<FieldErrors>({})
+  const [otherSpecialtie, setOtherSpecialtie] = useState<TOption>({
+    label: '',
+    value: ''
+  })
   const [values, setValues] = useState<UsersPermissionsRegisterInput>({
     name: '',
     email: '',
     password: '',
-    specialtie: '',
+    specialtie: [],
     phone: ''
   })
 
@@ -59,17 +62,34 @@ const FormSignUpTerapeuta = ({ options }: TFormSignUpTerapeuta) => {
     }
   })
 
+  const checkOtherIsEnabled = (option: TOption[]): boolean => {
+    let otherIsShown = false
+    option.forEach((o) => {
+      if (o.value === OtherSpecialties.toLowerCase()) otherIsShown = true
+    })
+
+    return otherIsShown
+  }
+
   const handleInput = (field: string, value: string) => {
     setFormError('')
     setFieldError({})
     setValues((s) => ({ ...s, [field]: value }))
   }
 
-  const handleDropdown = (value: string) => {
-    value === OtherSpecialties.toLowerCase()
-      ? setShowOtherSpecialtieField(true)
-      : setShowOtherSpecialtieField(false)
-    setValues((s) => ({ ...s, specialtie: value }))
+  const handleOtherSpecialtieField = (): void => {
+    setOtherSpecialtie({
+      label: '',
+      value: ''
+    })
+    setShowOtherSpecialtieField(false)
+  }
+
+  const handleDropdown = (option: TOption[]) => {
+    if (checkOtherIsEnabled(option)) setShowOtherSpecialtieField(true)
+
+    setFormError('')
+    setValues((s) => ({ ...s, specialtie: option }))
   }
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -85,12 +105,29 @@ const FormSignUpTerapeuta = ({ options }: TFormSignUpTerapeuta) => {
 
     setFieldError({})
 
+    const reduceSpecialties =
+      otherSpecialtie.value.length > 1
+        ? values.specialtie
+            .reduce(
+              (result, specialtie) => {
+                return specialtie.value !== OtherSpecialties.toLowerCase()
+                  ? {
+                      ...result,
+                      specialties: [...result.specialties, specialtie]
+                    }
+                  : { ...result }
+              },
+              { specialties: [] as TOption[] }
+            )
+            .specialties.concat(otherSpecialtie)
+        : values.specialtie
+
     createTerapeuta({
       variables: {
         email: values.email,
         nome: values.name,
         senha: values.password,
-        especialidade: values.specialtie,
+        especialidades: reduceSpecialties,
         telefone: values.phone
       }
     })
@@ -124,15 +161,21 @@ const FormSignUpTerapeuta = ({ options }: TFormSignUpTerapeuta) => {
         <Dropdown
           icon={<RibbonStar />}
           options={options}
+          error={fieldError?.specialtie}
           onDropdownChange={(v) => handleDropdown(v)}
+          handleOtherSpecialtieField={handleOtherSpecialtieField}
         />
         {showOtherSpecialtieField && (
-          <TextField
-            name="specialtie"
-            placeholder="Especialidade"
-            type="text"
-            onInputChange={(v) => handleInput('specialtie', v)}
-          />
+          <div style={{ paddingTop: '8px' }}>
+            <TextField
+              name="specialtie"
+              placeholder="Outra especialidade"
+              type="text"
+              onInputChange={(v) =>
+                setOtherSpecialtie({ value: v.toLowerCase(), label: v })
+              }
+            />
+          </div>
         )}
         <TextField
           name="email"

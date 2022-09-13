@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 export const DropdownWrapper = styled.div`
   ${({ theme }) => css`
@@ -43,9 +43,19 @@ export const DropdownContainer = styled.div`
 `
 
 export const DropdownInput = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > svg {
+      margin-left: ${theme.spacings.xxsmall};
+    }
+  `}
+`
+
+export const DropdownValues = styled.div`
+  width: 100%;
 `
 
 export const DropdownMenu = styled.div`
@@ -53,7 +63,7 @@ export const DropdownMenu = styled.div`
     position: absolute;
     transform: translateY(4px);
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid ${theme.colors.primary};
     background: ${theme.colors.white};
     border-radius: 5px;
     overflow-x: auto;
@@ -61,7 +71,60 @@ export const DropdownMenu = styled.div`
   `}
 `
 
-export const Item = styled.div`
-  cursor: pointer;
-  padding: 5px;
+const wrapperModifiers = {
+  selected: (theme: DefaultTheme) => css`
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+  `
+}
+
+type ItemProps = {
+  selected: boolean
+}
+
+export const Item = styled.div<ItemProps>`
+  ${({ theme, selected }) => css`
+    color: ${theme.colors.primary};
+    font-family: ${theme.font.family};
+    font-size: ${theme.font.sizes.medium};
+    cursor: pointer;
+    padding: 5px;
+
+    ${selected && wrapperModifiers.selected(theme)}
+  `}
+`
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.danger};
+    font-size: ${theme.font.sizes.xsmall};
+  `}
+`
+
+export const TagsContainer = styled.div`
+  ${({ theme }) => css`
+    & div:not(:first-child) {
+      margin-top: ${theme.spacings.xxsmall};
+    }
+  `}
+`
+
+export const Tags = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    background-color: ${theme.colors.white};
+    border-radius: 20px;
+    justify-content: space-between;
+    align-content: center;
+    color: ${theme.colors.primary};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
+    font-family: ${theme.font.family};
+    font-size: ${theme.font.sizes.medium};
+    font-weight: ${theme.font.bold};
+
+    > span {
+      color: ${theme.colors.black};
+      margin-left: ${theme.spacings.xxsmall};
+    }
+  `}
 `
