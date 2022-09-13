@@ -43,9 +43,11 @@ export const ButtonsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     > button {
       width: 100%;
       margin-bottom: ${theme.spacings.xxsmall};
+      margin: 10px;
     }
     ${media.greaterThan('medium')`
       flex-direction: row-reverse;

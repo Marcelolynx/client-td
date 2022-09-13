@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
+import { Location } from '@styled-icons/entypo/Location'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
@@ -21,6 +22,13 @@ const FormSignUp = () => (
         placeholder="Email"
         type="email"
         icon={<Email />}
+      />
+
+      <TextField
+        name="localidade"
+        placeholder="Localidade"
+        type="localidade"
+        icon={<Location />}
       />
       <TextField
         name="password"

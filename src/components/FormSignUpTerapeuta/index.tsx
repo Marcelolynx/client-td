@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
 import { Telephone } from '@styled-icons/bootstrap/Telephone'
 import { RibbonStar } from '@styled-icons/fluentui-system-filled/RibbonStar'
+import { Location } from '@styled-icons/entypo/Location'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
@@ -29,6 +30,12 @@ const FormSignUpTerapeuta = () => (
         placeholder="Especialidade Principal"
         type="especialidade"
         icon={<RibbonStar />}
+      />
+      <TextField
+        name="localidade"
+        placeholder="Cidade"
+        type="localidade"
+        icon={<Location />}
       />
 
       <TextField

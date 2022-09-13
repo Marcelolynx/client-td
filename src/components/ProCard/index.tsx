@@ -1,11 +1,9 @@
 import * as S from './styles'
-import {
-  AddShoppingCart,
-  FavoriteBorder,
-  Favorite
-} from '@styled-icons/material-outlined'
+import { FavoriteBorder, Favorite } from '@styled-icons/material-outlined'
+import { Plus } from '@styled-icons/boxicons-regular/Plus'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import Button from 'components/Button'
+import Link from 'next/link'
 
 export type ProCardProps = {
   title: string
@@ -57,7 +55,9 @@ const ProCard = ({
         {!!promotionalPrice && <S.Price isPromotional>R${price}</S.Price>}
         <p>Valor Hora</p>
         <S.Price>R${promotionalPrice || price}</S.Price>
-        <Button icon={<AddShoppingCart />} size="small" />
+        <Link href="/Terapeuta/${slug}">
+          <Button icon={<Plus />} size="small" />
+        </Link>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

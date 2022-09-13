@@ -10,6 +10,13 @@ export const Main = styled.main`
   `}
 `
 
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    max-width: ${theme.grid.container};
+    margin: 0 auto;
+  `}
+`
+
 type CoverProps = {
   src: string
 }

@@ -3,7 +3,7 @@ import TerapeutaInfo, { TerapeutaInfoProps } from '.'
 import mockGame from './mock'
 
 export default {
-  title: 'Game/TerapeutaInfo',
+  title: 'Terapeuta/TerapeutaInfo',
   component: TerapeutaInfo,
   parameters: {
     backgrounds: {
