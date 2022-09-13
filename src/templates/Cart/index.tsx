@@ -1,5 +1,4 @@
 import Heading from 'components/Heading'
-import { Container } from 'components/Container'
 import Blog, { PostProps } from 'components/Post'
 import CartList, { CartListProps } from 'components/CartList'
 import { Divider } from 'components/Divider'

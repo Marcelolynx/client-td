@@ -1,18 +1,6 @@
-import {
-  createGlobalStyle,
-  css,
-  DefaultTheme,
-  GlobalStyleComponent
-} from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
-type GlobalStylesProps = {
-  removeBg?: boolean
-}
-
-const GlobalStyles: GlobalStyleComponent<
-  GlobalStylesProps,
-  DefaultTheme
-> = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
 
 @font-face {
   font-family: 'Poppins';
@@ -50,12 +38,11 @@ const GlobalStyles: GlobalStyleComponent<
        url('/fonts/poppins-v20-latin-700.woff2') format('woff2');
 }
 
-
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -65,7 +52,7 @@ const GlobalStyles: GlobalStyleComponent<
     }
   }
 
-${({ theme, removeBg }) => css`
+${({ theme }) => css`
   html {
     font-size: 62.5%;
   }
@@ -73,11 +60,6 @@ ${({ theme, removeBg }) => css`
   body {
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
-
-    ${!removeBg &&
-    css`
-      background-color: ${theme.colors.white};
-    `}
     color: ${theme.colors.black};
     background-color: ${theme.colors.whiteBg};
   }

@@ -7,13 +7,13 @@ export const Wrapper = styled.menu`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: ${theme.spacings.small} 0;
+    padding: ${theme.spacings.xsmall} 0;
     position: relative;
     z-index: ${theme.layers.menu};
   `}
 `
 export const LogoWrapper = styled.div`
-  ${media.lessThan('medium')`
+  ${media.lessThan('large')`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

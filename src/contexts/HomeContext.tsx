@@ -11,9 +11,13 @@ type HomeContextData = {
   openMenu(): void
 }
 
+interface Props {
+  children?: React.ReactNode
+}
+
 const HomeContext = createContext<HomeContextData>({} as HomeContextData)
 
-export const HomeProvider: FC = ({ children }) => {
+export const HomeProvider: FC<Props> = ({ children }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   const openMenu = useCallback((): void => {

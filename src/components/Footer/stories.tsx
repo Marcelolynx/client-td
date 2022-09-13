@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Story } from '@storybook/react/types-6-0'
 import Footer from '.'
 
 export default {
@@ -6,7 +6,7 @@ export default {
   component: Footer
 }
 
-export const Basic: Story = (args) => (
+export const Basic: Story = () => (
   <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
     <Footer />
   </div>
