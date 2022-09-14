@@ -6,6 +6,8 @@ import {
   Lock,
   ErrorOutline
 } from '@styled-icons/material-outlined'
+import { useMutation } from '@apollo/client'
+import { signIn } from 'next-auth/client'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
@@ -15,12 +17,12 @@ import {
   signUpValidate,
   UsersPermissionsRegisterInput
 } from 'utils/validations'
+
 import {
-  MUTATION_ASSOCIADO_REGISTER,
-  TAssociadoRegisterData,
-  TAssociadoRegisterVariables
-} from 'graphql/mutations/associadoRegister'
-import { useMutation } from '@apollo/client'
+  TUserRegisterData,
+  TUserRegisterVariables,
+  USER_REGISTER
+} from 'graphql/mutations/userRegister'
 
 type TFormSignUp = Omit<UsersPermissionsRegisterInput, 'specialtie' | 'phone'>
 
@@ -33,16 +35,21 @@ const FormSignUp = () => {
     password: ''
   })
 
-  const [createAssociado, { loading }] = useMutation<
-    TAssociadoRegisterData,
-    TAssociadoRegisterVariables
-  >(MUTATION_ASSOCIADO_REGISTER, {
+  const [createUser, { error, loading }] = useMutation<
+    TUserRegisterData,
+    TUserRegisterVariables
+  >(USER_REGISTER, {
     onError: () =>
       setFormError(
         'Erro ao criar a conta. Por favor, tente novamente mais tarde.'
       ),
     onCompleted: () => {
-      alert('User criado com sucesso!')
+      !error &&
+        signIn('credentials', {
+          email: values.email,
+          password: values.password,
+          callbackUrl: '/'
+        })
     }
   })
 
@@ -65,10 +72,10 @@ const FormSignUp = () => {
 
     setFieldError({})
 
-    createAssociado({
+    createUser({
       variables: {
         email: values.email,
-        nomeCompleto: values.name,
+        username: values.name,
         password: values.password
       }
     })
