@@ -11,7 +11,7 @@ export interface Query_professional_cover {
   url: string
 }
 
-interface IAttributes {
+export interface IAttributes {
   id: string
   attributes: {
     name: string
@@ -32,9 +32,13 @@ interface IMeta {
   }
 }
 
-export interface QueryProfessionals {
+export interface IProfissional {
   meta: IMeta
   data: IAttributes[]
+}
+
+export interface QueryProfessionals {
+  profissionais: IProfissional
 }
 
 export interface QueryProfessionalsVariables {

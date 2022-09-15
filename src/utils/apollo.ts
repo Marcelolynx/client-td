@@ -1,12 +1,9 @@
-import {
-  ApolloClient,
-  HttpLink,
-  InMemoryCache,
-  NormalizedCacheObject
-} from '@apollo/client'
+import { ApolloClient, HttpLink, NormalizedCacheObject } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { Session } from 'next-auth'
 import { useMemo } from 'react'
+
+import apolloCache from './apolloCache'
 
 let apolloClient: ApolloClient<NormalizedCacheObject | null>
 
@@ -24,7 +21,7 @@ function createApolloClient(session?: Session | null) {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    cache: apolloCache
   })
 }
 

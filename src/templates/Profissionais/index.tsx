@@ -16,35 +16,32 @@ export type ProfissionaisTemplateProps = {
 
 const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
   const {
-    data: profissionais,
+    data: professionals,
     loading,
     fetchMore
   } = useQueryProfessionals({
     notifyOnNetworkStatusChange: true,
     variables: {
       pagination: {
-        limit: 2
+        limit: 1
       }
+    },
+    onCompleted: () => {
+      console.log('caiu')
     }
   })
 
-  if (!profissionais) return <p>loading...</p>
+  if (!professionals) return <p>loading...</p>
 
-  const {
-    data
-    // meta: {
-    //   pagination: { total }
-    // }
-  } = profissionais
+  const { data, meta } = professionals.profissionais
 
-  const hasMoreToLoad =
-    profissionais.data?.length < (profissionais.meta?.pagination.total || 0)
+  const hasMoreToLoad = data?.length < (meta?.pagination.total || 0)
 
   const handleShowMore = () => {
     fetchMore({
       variables: {
-        limit: 12,
-        pagination: { start: profissionais.data?.length }
+        limit: 1,
+        pagination: { start: data?.length }
       }
     })
   }
@@ -66,24 +63,17 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
             {data?.length ? (
               <>
                 <Grid>
-                  {data.map(
+                  {data?.map(
                     ({
                       id,
-                      attributes: {
-                        name,
-                        price,
-                        short_description,
-                        cover: {
-                          data: { attributes }
-                        }
-                      }
+                      attributes: { name, price, short_description, cover }
                     }) => (
                       <ProCard
                         key={id}
                         description={short_description}
                         price={String(price)}
                         title={name}
-                        img={`${getImageUrl(attributes!.url)}`}
+                        img={`${getImageUrl(cover?.data?.attributes!.url)}`}
                       />
                     )
                   )}
