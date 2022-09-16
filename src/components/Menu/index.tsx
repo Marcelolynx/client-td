@@ -71,7 +71,7 @@ const Menu = ({ username, loading }: MenuProps) => {
       ) : (
         <S.MenuGroup>
           <MediaMatch greaterThan="medium">
-            <UserDropdown username={username} />
+            {!loading && <UserDropdown username={username} />}
           </MediaMatch>
         </S.MenuGroup>
       )}
