@@ -22,7 +22,8 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
     query: QUERY_PROFESSIONALS,
     variables: {
       pagination: {
-        limit: 1
+        start: 0,
+        limit: 9
       }
     }
   })

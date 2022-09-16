@@ -23,15 +23,13 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
     notifyOnNetworkStatusChange: true,
     variables: {
       pagination: {
-        limit: 1
+        start: 0,
+        limit: 9
       }
-    },
-    onCompleted: () => {
-      console.log('caiu')
     }
   })
 
-  if (!professionals) return <p>loading...</p>
+  if (!professionals) return <p>Carregando...</p>
 
   const { data, meta } = professionals.profissionais
 
@@ -40,8 +38,7 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
   const handleShowMore = () => {
     fetchMore({
       variables: {
-        limit: 1,
-        pagination: { start: data?.length }
+        pagination: { limit: 9, start: data?.length }
       }
     })
   }
@@ -60,7 +57,7 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
               <BannerAdsense />
             </S.Banner>
 
-            {data?.length ? (
+            {!loading && data?.length ? (
               <>
                 <Grid>
                   {data?.map(

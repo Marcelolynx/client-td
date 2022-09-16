@@ -57,7 +57,7 @@ export const ShowMoreButton = styled.button`
     }
 
     &:hover {
-      color: ${darken(0.3, theme.colors.white)};
+      color: ${darken(0.3, theme.colors.primary)};
 
       > svg {
         color: ${darken(0.2, theme.colors.primary)};
