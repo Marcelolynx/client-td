@@ -36,6 +36,10 @@ export const MenuGroup = styled.div`
     > div {
       margin-left: ${theme.spacings.xsmall};
     }
+
+    & a:not(:first-child) {
+      margin-left: ${theme.spacings.xxsmall};
+    }
   `}
 `
 

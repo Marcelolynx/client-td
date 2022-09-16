@@ -57,7 +57,7 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
               <BannerAdsense />
             </S.Banner>
 
-            {!loading && data?.length ? (
+            {data?.length ? (
               <>
                 <Grid>
                   {data?.map(

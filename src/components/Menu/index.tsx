@@ -10,6 +10,7 @@ import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import { useHome } from 'contexts/HomeContext'
+import UserDropdown from 'components/UserDropdown'
 
 const breakPoint = 768
 
@@ -54,12 +55,23 @@ const Menu = ({ username, loading }: MenuProps) => {
         </S.MenuNav>
       </MediaMatch>
 
-      {!loading && !username && (
+      {!loading && !username ? (
         <S.MenuGroup>
           <MediaMatch greaterThan="medium">
+            <Link href="/sign-in" passHref>
+              <Button as="a" withoutBackground>
+                Login
+              </Button>
+            </Link>
             <Link href="/sign-up" passHref>
               <Button as="a">Cadastrar</Button>
             </Link>
+          </MediaMatch>
+        </S.MenuGroup>
+      ) : (
+        <S.MenuGroup>
+          <MediaMatch greaterThan="medium">
+            <UserDropdown username={username} />
           </MediaMatch>
         </S.MenuGroup>
       )}
