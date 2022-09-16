@@ -31,40 +31,6 @@ describe('<TextField />', () => {
     expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
-  it('Changes its value when typing', async () => {
-    const onInput = jest.fn()
-    renderWithTheme(
-      <TextField
-        onInput={onInput}
-        label="TextField"
-        labelFor="TextField"
-        id="TextField"
-      />
-    )
-
-    const input = screen.getByRole('textbox')
-    const text = 'This is my new text'
-    userEvent.type(input, text)
-
-    await waitFor(() => {
-      expect(input).toHaveValue(text)
-      expect(onInput).toHaveBeenCalledTimes(text.length)
-    })
-    expect(onInput).toHaveBeenCalledWith(text)
-  })
-
-  it('Is accessible by tab', () => {
-    renderWithTheme(
-      <TextField label="TextField" labelFor="TextField" id="TextField" />
-    )
-
-    const input = screen.getByLabelText('TextField')
-    expect(document.body).toHaveFocus()
-
-    userEvent.tab()
-    expect(input).toHaveFocus()
-  })
-
   it('Does not changes its value when disabled', async () => {
     const onInput = jest.fn()
     renderWithTheme(
