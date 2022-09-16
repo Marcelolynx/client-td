@@ -19,7 +19,7 @@
     "@styled-icons/boxicons-solid": "^10.38.0",
     "graphql": "^16.6.0",
     "joi": "^17.6.0",
-    "next": "12.0.10",
+    "next": "12.3.0",
     "next-auth": "^3.27.0",
     "next-pwa": "5.3.1",
     "nextjs-progressbar": "^0.0.14",
