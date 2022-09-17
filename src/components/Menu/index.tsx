@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import Link from 'next/link'
+import { signOut } from 'next-auth/client'
 
 import Logo from 'components/Logo'
 import LogoMobile from 'components/LogoMobile'
@@ -9,14 +10,16 @@ import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import { useHome } from 'contexts/HomeContext'
+import UserDropdown from 'components/UserDropdown'
 
 const breakPoint = 768
 
 export type MenuProps = {
-  username?: string
+  username?: string | null
+  loading?: boolean
 }
 
-const Menu = ({ username }: MenuProps) => {
+const Menu = ({ username, loading }: MenuProps) => {
   const { menuIsOpen, openMenu } = useHome()
   const [width, setWidth] = useState(0)
 
@@ -52,13 +55,26 @@ const Menu = ({ username }: MenuProps) => {
         </S.MenuNav>
       </MediaMatch>
 
-      <S.MenuGroup>
-        <MediaMatch greaterThan="medium">
-          <Link href="/sign-up" passHref>
-            <Button as="a">Cadastrar</Button>
-          </Link>
-        </MediaMatch>
-      </S.MenuGroup>
+      {!loading && !username ? (
+        <S.MenuGroup>
+          <MediaMatch greaterThan="medium">
+            <Link href="/sign-in" passHref>
+              <Button as="a" withoutBackground>
+                Login
+              </Button>
+            </Link>
+            <Link href="/sign-up" passHref>
+              <Button as="a">Cadastrar</Button>
+            </Link>
+          </MediaMatch>
+        </S.MenuGroup>
+      ) : (
+        <S.MenuGroup>
+          <MediaMatch greaterThan="medium">
+            {!loading && <UserDropdown username={username} />}
+          </MediaMatch>
+        </S.MenuGroup>
+      )}
 
       <S.MenuFull aria-hidden={!menuIsOpen} isOpen={menuIsOpen}>
         <CloseIcon aria-label="Close Menu" onClick={openMenu} />
@@ -72,15 +88,19 @@ const Menu = ({ username }: MenuProps) => {
           </Link>
           {!!username && (
             <>
-              <S.MenuLink href="#">Minha conta</S.MenuLink>
-              <S.MenuLink href="#">Sair</S.MenuLink>
+              <Link href="#" passHref>
+                <S.MenuLink>Minha conta</S.MenuLink>
+              </Link>
+              <S.MenuLink role="button" onClick={() => signOut()}>
+                Sair
+              </S.MenuLink>
             </>
           )}
         </S.MenuNav>
 
         {menuIsOpen && (
           <S.RegisterBox>
-            <Link href="/sign-up" passHref>
+            <Link href="/sign-in" passHref>
               <Button fullWidth size="large" as="a">
                 Login
               </Button>

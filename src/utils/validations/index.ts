@@ -1,4 +1,5 @@
 import { TOption } from 'components/Dropdown'
+import { TUserRegisterVariables } from 'graphql/mutations/userRegister'
 import Joi from 'joi'
 
 export interface UsersPermissionsRegisterInput {
@@ -24,7 +25,8 @@ const fieldsValidations = {
     'any.required': `Favor preencher um telefone válido`,
     'string.min': `Favor preencher um telefone válido`
   }),
-  specialtie: Joi.array().min(1).required().messages({
+  // TO DO: colocar como required ao refatorar o signup do terapeuta
+  specialtie: Joi.array().min(1).messages({
     'array.min': `Selecionar ao menos uma especialidade`
   }),
   email: Joi.string()
@@ -36,13 +38,13 @@ const fieldsValidations = {
       'any.required': `Favor preencher um e-mail válido`
     }),
   password: Joi.string()
-    .min(6)
+    .min(8)
     .required()
     .messages({
       'string.empty': `Favor preencher uma senha válida`,
       'string.min': `A senha deve conter no mínimo 8 caracteres`,
       'any.required': `Favor preencher uma senha válida`,
-      'string.pattern.base': `A senha fornecida não atende os requisitos mínimos de segurança. Mínimo de 8 caracteres e adicione ao menos um caractere especial`
+      'string.pattern.base': `A senha fornecida não atende os requisitos mínimos de segurança. Mínimo de 8 caracteres e adicione ao menos um caractere especial e uma letra maiúscula`
     })
     .pattern(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
@@ -69,14 +71,6 @@ function getFieldErrors(objError: Joi.ValidationResult) {
   return errors
 }
 
-type SignInValues = Omit<UsersPermissionsRegisterInput, 'name'>
-export function signInValidate(values: SignInValues) {
-  const { email, password } = fieldsValidations
-  const schema = Joi.object({ email, password })
-
-  return getFieldErrors(schema.validate(values, { abortEarly: false }))
-}
-
 export function signUpValidate(
   values: Omit<UsersPermissionsRegisterInput, 'specialtie' | 'phone'>
 ) {
@@ -87,6 +81,14 @@ export function signUpValidate(
 
 export function signUpTerapeutaValidate(values: UsersPermissionsRegisterInput) {
   const schema = Joi.object(fieldsValidations)
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+type SignInValues = Omit<TUserRegisterVariables, 'username'>
+export function signInValidate(values: SignInValues) {
+  const { email, password } = fieldsValidations
+  const schema = Joi.object({ email, password })
 
   return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }

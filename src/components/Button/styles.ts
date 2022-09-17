@@ -3,7 +3,7 @@ import { ButtonProps } from '.'
 
 export type WrapperProps = { hasIcon: boolean } & Pick<
   ButtonProps,
-  'size' | 'fullWidth'
+  'size' | 'fullWidth' | 'withoutBackground'
 >
 
 const wrapperModifiers = {
@@ -33,6 +33,15 @@ const wrapperModifiers = {
       }
     }
   `,
+  withoutBackground: (theme: DefaultTheme) => css`
+    color: ${theme.colors.primary};
+    background: none;
+    border: 1px solid ${theme.colors.primary};
+
+    &:hover {
+      background: none;
+    }
+  `,
   disabled: () => css`
     &:disabled {
       cursor: not-allowed;
@@ -42,10 +51,11 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon, disabled }) => css`
+  ${({ theme, size, fullWidth, hasIcon, disabled, withoutBackground }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-weight: ${theme.font.bold};
     background: linear-gradient(
       90deg,
       rgba(115, 65, 115, 1) 0%,
@@ -75,5 +85,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!fullWidth && wrapperModifiers.fullWidth()};
     ${!!hasIcon && wrapperModifiers.withIcon(theme)};
     ${disabled && wrapperModifiers.disabled()};
+    ${withoutBackground && wrapperModifiers.withoutBackground(theme)};
   `}
 `
