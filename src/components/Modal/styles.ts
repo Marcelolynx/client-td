@@ -55,6 +55,6 @@ export const Footer = styled.footer`
     border: none;
     font-size: 16px;
     margin-right: 8px;
-    color: ${({ theme }) => theme.colors.gray.light};
+    color: ${({ theme }) => theme.colors.gray};
   }
 `
