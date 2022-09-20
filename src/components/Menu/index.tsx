@@ -11,6 +11,7 @@ import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import { useHome } from 'contexts/HomeContext'
 import UserDropdown from 'components/UserDropdown'
+import { useModal } from 'contexts/ModalContext'
 
 const breakPoint = 768
 
@@ -21,6 +22,7 @@ export type MenuProps = {
 
 const Menu = ({ username, loading }: MenuProps) => {
   const { menuIsOpen, openMenu } = useHome()
+  const { modalIsOpen } = useModal()
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Menu = ({ username, loading }: MenuProps) => {
   }, [])
 
   return (
-    <S.Wrapper>
+    <S.Wrapper modalIsOpened={modalIsOpen}>
       <MediaMatch lessThan="large">
         <S.IconWrapper onClick={openMenu}>
           <MenuIcon aria-label="Open Menu" />

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
 import Base from 'templates/Base'
@@ -7,6 +8,9 @@ import { Grid } from 'components/Grid'
 import BannerAdsense from 'components/BannerAdsense'
 import { useQueryProfessionals } from 'graphql/queries/professionals'
 import { getImageUrl } from 'utils/getImageUrl'
+import { useModal } from 'contexts/ModalContext'
+import Portal from 'components/Portal'
+import Modal from 'components/Modal'
 
 import * as S from './styles'
 
@@ -15,6 +19,14 @@ export type ProfissionaisTemplateProps = {
 }
 
 const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
+  const { modalIsOpen, openModal } = useModal()
+  const [title, setTitle] = useState('')
+
+  const handleOpenModal = (title: string): void => {
+    setTitle(title)
+    openModal()
+  }
+
   const {
     data: professionals,
     loading,
@@ -71,6 +83,7 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
                         price={String(price)}
                         title={name}
                         img={`${getImageUrl(cover?.data?.attributes!.url)}`}
+                        onOpenDetails={(v) => handleOpenModal(v)}
                       />
                     )
                   )}
@@ -95,6 +108,12 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
             ) : null}
           </section>
         </S.Main>
+
+        {modalIsOpen && (
+          <Portal>
+            <Modal content={title} />
+          </Portal>
+        )}
       </S.Wrapper>
     </Base>
   )

@@ -1,15 +1,19 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.menu`
-  ${({ theme }) => css`
+type TWrapper = {
+  modalIsOpened: boolean
+}
+
+export const Wrapper = styled.menu<TWrapper>`
+  ${({ theme, modalIsOpened }) => css`
     max-width: ${theme.grid.container};
     margin: 0 auto;
     display: flex;
     align-items: center;
     padding: ${theme.spacings.xsmall} 0;
     position: relative;
-    z-index: ${theme.layers.menu};
+    z-index: ${modalIsOpened ? 0 : theme.layers.menu};
   `}
 `
 export const LogoWrapper = styled.div`

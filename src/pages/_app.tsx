@@ -10,6 +10,7 @@ import Head from 'next/head'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 import { useApollo } from 'utils/apollo'
+import { ModalProvider } from 'contexts/ModalContext'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
@@ -25,25 +26,27 @@ function App({ Component, pageProps }: AppProps) {
     <AuthProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
         <ApolloProvider client={client}>
-          <Head>
-            <title>Terapia de Todos</title>
-            <link rel="shortcut icon" href="/img/favicon.png" />
-            <link rel="apple-touch-icon" href="/img/favicon.png" />
-            <link rel="manifest" href="/manifest.json" />
-            <meta
-              name="description"
-              content="Terapia de Todos - O Melhor Clube de Benefícios do Brasil"
+          <ModalProvider>
+            <Head>
+              <title>Terapia de Todos</title>
+              <link rel="shortcut icon" href="/img/favicon.png" />
+              <link rel="apple-touch-icon" href="/img/favicon.png" />
+              <link rel="manifest" href="/manifest.json" />
+              <meta
+                name="description"
+                content="Terapia de Todos - O Melhor Clube de Benefícios do Brasil"
+              />
+            </Head>
+            <GlobalStyles />
+            <NextNProgress
+              color="#C5A7C5"
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={4}
+              showOnShallow={true}
             />
-          </Head>
-          <GlobalStyles />
-          <NextNProgress
-            color="#C5A7C5"
-            startPosition={0.3}
-            stopDelayMs={200}
-            height={4}
-            showOnShallow={true}
-          />
-          <Component {...pageProps} />
+            <Component {...pageProps} />
+          </ModalProvider>
         </ApolloProvider>
       </ThemeProvider>
     </AuthProvider>
