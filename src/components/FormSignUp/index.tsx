@@ -1,21 +1,13 @@
 import { useState } from 'react'
 import Link from 'next/link'
-<<<<<<< HEAD
-import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
-import { Location } from '@styled-icons/entypo/Location'
-=======
 import {
   AccountCircle,
   Email,
   Lock,
   ErrorOutline
 } from '@styled-icons/material-outlined'
-<<<<<<< HEAD
->>>>>>> 01ccf356589c5fea474ddad276fcce2188420612
-=======
 import { useMutation } from '@apollo/client'
 import { signIn } from 'next-auth/client'
->>>>>>> 64efb27b36bfca4a7ae1cce43a696e242e5675f0
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
@@ -32,59 +24,6 @@ import {
   USER_REGISTER
 } from 'graphql/mutations/userRegister'
 
-<<<<<<< HEAD
-import * as S from './styles'
-import { FormLink, FormWrapper } from 'components/Form'
-
-const FormSignUp = () => (
-  <FormWrapper>
-    <form>
-      <TextField
-        name="name"
-        placeholder="Nome"
-        type="name"
-        icon={<AccountCircle />}
-      />
-      <TextField
-        name="email"
-        placeholder="Email"
-        type="email"
-        icon={<Email />}
-      />
-
-      <TextField
-        name="localidade"
-        placeholder="Localidade"
-        type="localidade"
-        icon={<Location />}
-      />
-      <TextField
-        name="password"
-        placeholder="Senha"
-        type="password"
-        icon={<Lock />}
-      />
-      <TextField
-        name="confirm-password"
-        placeholder="Confirme a senha"
-        type="password"
-        icon={<Lock />}
-      />
-
-      <Button size="large" fullWidth>
-        Cadastrar Agora!
-      </Button>
-
-      <FormLink>
-        Já possui uma conta?{' '}
-        <Link href="/sign-in">
-          <a>Login</a>
-        </Link>
-      </FormLink>
-    </form>
-  </FormWrapper>
-)
-=======
 type TFormSignUp = Omit<UsersPermissionsRegisterInput, 'specialtie' | 'phone'>
 
 const FormSignUp = () => {
@@ -197,6 +136,5 @@ const FormSignUp = () => {
     </FormWrapper>
   )
 }
->>>>>>> 01ccf356589c5fea474ddad276fcce2188420612
 
 export default FormSignUp

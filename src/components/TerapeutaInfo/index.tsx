@@ -26,7 +26,7 @@ const TerapeutaInfo = ({ title, description, price }: TerapeutaInfoProps) => (
       <Button icon={<Telephone />} size="large">
         Ver contato
       </Button>
-      <Button icon={<FavoriteBorder />} size="large" minimal>
+      <Button icon={<FavoriteBorder />} size="large">
         Favoritos
       </Button>
     </S.ButtonsWrapper>

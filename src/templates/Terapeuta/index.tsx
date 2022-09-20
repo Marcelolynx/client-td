@@ -1,10 +1,15 @@
 import TerapeutaInfo, { TerapeutaInfoProps } from 'components/TerapeutaInfo'
 import Base from 'templates/Base'
+
 import * as S from './styles'
 
 export type TerapeutaTemplateProps = {
   cover: string
   terapeutaInfo: TerapeutaInfoProps
+  price: string
+  description: string
+  title: string
+  img: string
 }
 
 const Terapeuta = ({
