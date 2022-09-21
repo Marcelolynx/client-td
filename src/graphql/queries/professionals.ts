@@ -17,6 +17,8 @@ export interface IAttributes {
     name: string
     slug: string
     price: number
+    promotional_price: number
+    description: string
     short_description: string
     cover: {
       data: {
@@ -65,6 +67,8 @@ export const QUERY_PROFESSIONALS = gql`
           name
           slug
           price
+          promotional_price
+          description
           short_description
           cover {
             data {

@@ -75,12 +75,21 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
                   {data?.map(
                     ({
                       id,
-                      attributes: { name, price, short_description, cover }
+                      attributes: {
+                        name,
+                        price,
+                        description,
+                        promotional_price,
+                        short_description,
+                        cover
+                      }
                     }) => (
                       <ProCard
                         key={id}
-                        description={short_description}
-                        price={String(price)}
+                        shortDescription={short_description}
+                        fullDescription={description}
+                        price={price}
+                        promotionalPrice={promotional_price}
                         title={name}
                         img={`${getImageUrl(cover?.data?.attributes!.url)}`}
                         onOpenDetails={(v) => handleOpenModal(v)}
