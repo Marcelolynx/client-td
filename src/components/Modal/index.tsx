@@ -38,7 +38,7 @@ const Modal = ({ content, footer }: TModal) => {
         <S.Container>
           <S.Header>
             <S.CloseButton>
-              <Close size={24} onClick={handleCloseClick}></Close>
+              <Close onClick={handleCloseClick}></Close>
             </S.CloseButton>
           </S.Header>
           {content}

@@ -13,6 +13,16 @@ import Portal from 'components/Portal'
 import Modal from 'components/Modal'
 
 import * as S from './styles'
+import ProfessionalModalContent from 'components/ProfessionalModalContent'
+
+export type TModalContent = {
+  name: string
+  price?: number
+  promotional_price?: number
+  description?: string
+  short_description?: string
+  img: string
+}
 
 export type ProfissionaisTemplateProps = {
   filterItems: ItemProps[]
@@ -20,10 +30,13 @@ export type ProfissionaisTemplateProps = {
 
 const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
   const { modalIsOpen, openModal } = useModal()
-  const [title, setTitle] = useState('')
+  const [modalInfo, setModalInfo] = useState<TModalContent>({
+    img: '',
+    name: ''
+  })
 
-  const handleOpenModal = (title: string): void => {
-    setTitle(title)
+  const handleOpenModal = (data: TModalContent): void => {
+    setModalInfo(data)
     openModal()
   }
 
@@ -120,7 +133,7 @@ const ProfissionaisTemplate = ({ filterItems }: ProfissionaisTemplateProps) => {
 
         {modalIsOpen && (
           <Portal>
-            <Modal content={title} />
+            <Modal content={<ProfessionalModalContent {...modalInfo} />} />
           </Portal>
         )}
       </S.Wrapper>

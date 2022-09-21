@@ -13,6 +13,7 @@ export type TextFieldProps = {
   disabled?: boolean
   error?: string
   formatPhone?: boolean
+  removeInputBackground?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
@@ -24,6 +25,7 @@ const TextField = ({
   error,
   disabled = false,
   formatPhone = false,
+  removeInputBackground = false,
   onInputChange,
   ...props
 }: TextFieldProps) => {
@@ -39,9 +41,13 @@ const TextField = ({
   }
 
   return (
-    <S.Wrapper disabled={disabled} error={!!error}>
+    <S.Wrapper
+      disabled={disabled}
+      error={!!error}
+      removeInputBackground={removeInputBackground}
+    >
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
-      <S.InputWrapper>
+      <S.InputWrapper removeInputBackground={removeInputBackground}>
         {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
         <S.Input
           type="text"
@@ -50,6 +56,7 @@ const TextField = ({
           iconPosition={iconPosition}
           disabled={disabled}
           autoComplete="off"
+          removeInputBackground={removeInputBackground}
           {...props}
         />
       </S.InputWrapper>

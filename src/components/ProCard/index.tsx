@@ -5,6 +5,7 @@ import { Plus } from '@styled-icons/boxicons-regular/Plus'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import Button from 'components/Button'
 import * as S from './styles'
+import { TModalContent } from 'templates/Profissionais'
 
 export type ProCardProps = {
   title: string
@@ -18,7 +19,7 @@ export type ProCardProps = {
   ribbonColor?: RibbonColors
   ribbonSize?: RibbonSizes
   onFav?: () => void
-  onOpenDetails?: (value: string) => void
+  onOpenDetails?: (data: TModalContent) => void
 }
 
 const ProCard = ({
@@ -38,7 +39,7 @@ const ProCard = ({
   const [session] = useSession()
 
   const onExpandProfessionalDetails = () => {
-    !!onOpenDetails && onOpenDetails(title)
+    !!onOpenDetails && onOpenDetails({ name: title, img })
   }
 
   return (

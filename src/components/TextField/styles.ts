@@ -2,37 +2,47 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 import { TextFieldProps } from '.'
 
+type TRemoveBackground = {
+  removeInputBackground: boolean
+}
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
-type WrapperProps = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
+type WrapperProps = Pick<TextFieldProps, 'disabled'> &
+  TRemoveBackground & { error?: boolean }
 
-export const InputWrapper = styled.div`
-  ${({ theme }) => css`
+export const InputWrapper = styled.div<TRemoveBackground>`
+  ${({ theme, removeInputBackground }) => css`
     display: flex;
-    background: ${theme.colors.lightGray};
+    background: ${removeInputBackground
+      ? 'transparent'
+      : theme.colors.lightGray};
     border-radius: 0.2rem;
-    padding: 0 ${theme.spacings.xsmall};
-    border: 0.2rem solid;
-    border-color: ${theme.colors.lightGray};
+    padding: ${removeInputBackground ? 0 : `0 ${theme.spacings.xsmall}`};
+    border: ${removeInputBackground ? 'none' : '0.2rem solid'};
+    border-color: ${removeInputBackground ? 'none' : theme.colors.lightGray};
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
   `}
 `
 
-export const Input = styled.input<IconPositionProps>`
-  ${({ theme, iconPosition }) => css`
+export const Input = styled.input<IconPositionProps & TRemoveBackground>`
+  ${({ theme, iconPosition, removeInputBackground }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall};
-    padding-${iconPosition}: ${theme.spacings.xsmall};
+    padding-${iconPosition}: ${
+    removeInputBackground ? 0 : theme.spacings.xsmall
+  };
     background: transparent;
     border: 0;
     outline: none;
     width: 100%;
 
     &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 ${theme.spacings.small} ${theme.colors.lightGray} inset
+      -webkit-box-shadow: 0 0 0 ${theme.spacings.small} ${
+    theme.colors.lightGray
+  } inset
       filter: none
     }
   `}
@@ -75,9 +85,15 @@ const wrapperModifiers = {
       color: ${theme.colors.danger};
     }
   `,
-  disabled: (theme: DefaultTheme) => css`
-    ${Label},
-    ${Input},
+  disabled: (theme: DefaultTheme, removeInputBackground: boolean) => css`
+    ${Label} {
+      color: ${theme.colors.gray};
+    }
+    ${Input} {
+      color: ${removeInputBackground
+        ? theme.colors.primary
+        : theme.colors.gray};
+    }
     ${Icon} {
       cursor: not-allowed;
       color: ${theme.colors.gray};
@@ -89,8 +105,8 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, disabled, error }) => css`
+  ${({ theme, disabled, error, removeInputBackground }) => css`
     ${error && wrapperModifiers.error(theme)}
-    ${disabled && wrapperModifiers.disabled(theme)}
+    ${disabled && wrapperModifiers.disabled(theme, removeInputBackground)}
   `}
 `
